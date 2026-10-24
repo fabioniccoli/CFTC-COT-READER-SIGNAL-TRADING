@@ -3,7 +3,7 @@ import csv
 import requests
 import flet as ft
 
-# Dizionario delle traduzioni per rendere l'app multilingue
+# Dizionario delle traduzioni multilingue
 TRANSLATIONS = {
     "it": {
         "title": "CFTC Report Analyzer",
@@ -59,39 +59,34 @@ TRANSLATIONS = {
 }
 
 def main(page: ft.Page):
+    # Rilevamento della lingua protetto per Android
+    lang_code = "it"
     try:
-        # Rilevamento della lingua protetto
+        if hasattr(page, 'locale') and page.locale:
+            lang_code = str(page.locale).lower()[:2]
+    except Exception:
         lang_code = "it"
-        try:
-            if hasattr(page, 'locale') and page.locale:
-                lang_code = str(page.locale).lower()[:2]
-        except Exception:
-            lang_code = "it"
-            
-        if lang_code not in TRANSLATIONS:
-            lang_code = "en"
+        
+    if lang_code not in TRANSLATIONS:
+        lang_code = "en"
 
-        t = TRANSLATIONS[lang_code]
+    t = TRANSLATIONS[lang_code]
 
-        page.title = t["title"]
-        page.vertical_alignment = ft.MainAxisAlignment.CENTER
-        page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-        page.scroll = ft.ScrollMode.AUTO
-        page.theme_mode = ft.ThemeMode.DARK
+    page.title = t["title"]
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.scroll = ft.ScrollMode.AUTO
+    page.theme_mode = ft.ThemeMode.DARK
 
-        # Test di caricamento interfaccia di base
-        page.add(ft.Text("Avvio in corso...", size=20))
-        page.update()
+    status_text = ft.Text(t["ready"], size=14)
+    progress_ring = ft.ProgressRing(visible=False)
+    results_view = ft.ListView(expand=1, spacing=5, padding=10, auto_scroll=True)
 
-    except Exception as ex:
-        # Se c'è un errore, LO SCRIVE A SCHERMO IN ROSSO invece di chiudere l'app!
-        import traceback
-        error_details = traceback.format_exc()
-        page.clean()
-        page.add(
-            ft.Text("ERRORE CRITICO DI AVVIO:", color="red", size=16, weight="bold"),
-            ft.Text(error_details, color="white", size=12)
-        )
+    # Funzione eseguita quando l'utente preme il pulsante
+    def run_analysis(e):
+        status_text.value = t["downloading"]
+        progress_ring.visible = True
+        results_view.controls.clear()
         page.update()
 
         try:
@@ -136,7 +131,6 @@ def main(page: ft.Page):
                 all_results.append(f"\n--- {category_name} ---")
                 
                 for kw in keywords:
-                    found = False
                     for row in rows:
                         if not row or len(row) < 15:
                             continue
@@ -154,8 +148,6 @@ def main(page: ft.Page):
                                 pct_long = (non_comm_long / open_interest) * 100
                                 pct_short = (non_comm_short / open_interest) * 100
                                 
-                                flag_long = " [HIGH >60%]" if lang_code == "en" else (" [ALTO >60%]" if lang_code == "it" else " [ALTO >60%]")
-                                
                                 line = (
                                     f"{market_name[:25]:<27} | "
                                     f"L:{pct_long:4.1f}% | S:{pct_short:4.1f}%"
@@ -169,7 +161,6 @@ def main(page: ft.Page):
                                     "pct_short": pct_short,
                                     "strength_score": (pct_long - pct_short) + ((change_long - change_short) / open_interest * 100)
                                 }
-                                found = True
                                 break
                             except Exception:
                                 pass
@@ -212,5 +203,5 @@ def main(page: ft.Page):
         status_text,
         ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
         ft.Divider(),
-    results_view
-)
+        results_view
+    )
