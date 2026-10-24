@@ -59,13 +59,14 @@ TRANSLATIONS = {
 }
 
 def main(page: ft.Page):
-    # Rileva la lingua del sistema o imposta l'italiano di default (fallback su 'en')
-    user_lang = page.platform_brightness # (o rilevamento nativo)
-    # Semplificazione per l'esempio: leggiamo la lingua del client se disponibile, altrimenti 'it'
-    lang_code = "it" 
-    if page.client_platform and hasattr(page, 'locale') and page.locale:
-        lang_code = page.locale.lower()[:2]
-    
+    # Rilevamento della lingua protetto da errori per Android
+    lang_code = "it"
+    try:
+        if hasattr(page, 'locale') and page.locale:
+            lang_code = str(page.locale).lower()[:2]
+    except Exception:
+        lang_code = "it"
+        
     if lang_code not in TRANSLATIONS:
         lang_code = "en"  # Default internazionale
 
