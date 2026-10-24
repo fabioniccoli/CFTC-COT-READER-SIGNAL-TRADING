@@ -59,33 +59,39 @@ TRANSLATIONS = {
 }
 
 def main(page: ft.Page):
-    # Rilevamento della lingua protetto da errori per Android
-    lang_code = "it"
     try:
-        if hasattr(page, 'locale') and page.locale:
-            lang_code = str(page.locale).lower()[:2]
-    except Exception:
+        # Rilevamento della lingua protetto
         lang_code = "it"
-        
-    if lang_code not in TRANSLATIONS:
-        lang_code = "en"  # Default internazionale
+        try:
+            if hasattr(page, 'locale') and page.locale:
+                lang_code = str(page.locale).lower()[:2]
+        except Exception:
+            lang_code = "it"
+            
+        if lang_code not in TRANSLATIONS:
+            lang_code = "en"
 
-    t = TRANSLATIONS[lang_code]
+        t = TRANSLATIONS[lang_code]
 
-    page.title = t["title"]
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.scroll = ft.ScrollMode.AUTO
-    page.theme_mode = ft.ThemeMode.DARK
+        page.title = t["title"]
+        page.vertical_alignment = ft.MainAxisAlignment.CENTER
+        page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+        page.scroll = ft.ScrollMode.AUTO
+        page.theme_mode = ft.ThemeMode.DARK
 
-    status_text = ft.Text(t["ready"], size=14)
-    progress_ring = ft.ProgressRing(visible=False)
-    results_view = ft.ListView(expand=1, spacing=5, padding=10, auto_scroll=True)
+        # Test di caricamento interfaccia di base
+        page.add(ft.Text("Avvio in corso...", size=20))
+        page.update()
 
-    def run_analysis(e):
-        status_text.value = t["downloading"]
-        progress_ring.visible = True
-        results_view.controls.clear()
+    except Exception as ex:
+        # Se c'è un errore, LO SCRIVE A SCHERMO IN ROSSO invece di chiudere l'app!
+        import traceback
+        error_details = traceback.format_exc()
+        page.clean()
+        page.add(
+            ft.Text("ERRORE CRITICO DI AVVIO:", color="red", size=16, weight="bold"),
+            ft.Text(error_details, color="white", size=12)
+        )
         page.update()
 
         try:
