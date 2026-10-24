@@ -207,8 +207,3 @@ def main(page: ft.Page):
         ft.Divider(),
     results_view
 )
-
-# Avvia l'app solo se eseguito direttamente su PC, 
-# evitando che vada in errore su Android dove ci pensa il sistema mobile
-if __name__ == "__main__":
-    ft.app(target=main)
