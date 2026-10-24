@@ -138,10 +138,16 @@ def main(page: ft.Page):
 
     analyze_btn = ft.ElevatedButton(t["btn_text"], on_click=run_analysis, icon=ft.icons.PLAY_ARROW)
     
+    # RACCHIUDIAMO TUTTO IN UNA COLONNA CON EXPAND=TRUE PER EVITARE IL CRASH GRAFICO SU ANDROID
     page.add(
-        ft.Text(t["title"], size=20, weight=ft.FontWeight.BOLD),
-        status_text,
-        ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
-        ft.Divider(),
-        results_view
+        ft.Column(
+            [
+                ft.Text(t["title"], size=20, weight=ft.FontWeight.BOLD),
+                status_text,
+                ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
+                ft.Divider(),
+                results_view,
+            ],
+            expand=True,
+        )
     )
