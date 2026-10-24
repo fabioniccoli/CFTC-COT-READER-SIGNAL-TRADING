@@ -205,7 +205,10 @@ def main(page: ft.Page):
         status_text,
         ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
         ft.Divider(),
-        results_view
-    )
+    results_view
+)
 
-ft.app(target=main)
+# Avvia l'app solo se eseguito direttamente su PC, 
+# evitando che vada in errore su Android dove ci pensa il sistema mobile
+if __name__ == "__main__":
+    ft.app(target=main)
