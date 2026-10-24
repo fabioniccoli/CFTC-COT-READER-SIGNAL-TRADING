@@ -1,63 +1,3 @@
-import io
-import csv
-import requests
-import flet as ft
-
-# Dizionario delle traduzioni multilingue
-TRANSLATIONS = {
-    "it": {
-        "title": "CFTC Report Analyzer",
-        "ready": "Pronto per scaricare e analizzare i dati.",
-        "downloading": "Scaricamento dei dati dal report Legacy CFTC...",
-        "btn_text": "Avvia Analisi CFTC",
-        "success": "Analisi completata con successo!",
-        "error": "Errore",
-        "currency_section": "--- INCROCI VALUTARI ---",
-        "top_setup": "-> TOP SETUP: Long {cur1} / Short {cur2}",
-        "strat_signals": "--- SEGNALI STRATEGICI ---",
-        "cat_valute": "VALUTE",
-        "cat_grains": "MATERIE PRIME - GRAINS",
-        "cat_metalli": "METALLI",
-        "cat_softs": "SOFTS",
-        "cat_energies": "ENERGIES",
-        "cat_indici": "INDICI"
-    },
-    "en": {
-        "title": "CFTC Report Analyzer",
-        "ready": "Ready to download and analyze data.",
-        "downloading": "Downloading data from CFTC Legacy report...",
-        "btn_text": "Start CFTC Analysis",
-        "success": "Analysis completed successfully!",
-        "error": "Error",
-        "currency_section": "--- CURRENCY CROSSES ---",
-        "top_setup": "-> TOP SETUP: Long {cur1} / Short {cur2}",
-        "strat_signals": "--- STRATEGIC SIGNALS ---",
-        "cat_valute": "CURRENCIES",
-        "cat_grains": "COMMODITIES - GRAINS",
-        "cat_metalli": "METALS",
-        "cat_softs": "SOFTS",
-        "cat_energies": "ENERGIES",
-        "cat_indici": "INDICES"
-    },
-    "es": {
-        "title": "Analizador de Informes CFTC",
-        "ready": "Listo para descargar y analizar datos.",
-        "downloading": "Descargando datos del informe Legacy CFTC...",
-        "btn_text": "Iniciar Análisis CFTC",
-        "success": "¡Análisis completado con éxito!",
-        "error": "Error",
-        "currency_section": "--- CRUCES DE DIVISAS ---",
-        "top_setup": "-> TOP SETUP: Long {cur1} / Short {cur2}",
-        "strat_signals": "--- SEÑALES ESTRATÉGICAS ---",
-        "cat_valute": "DIVISAS",
-        "cat_grains": "MATERIAS PRIMAS - GRANOS",
-        "cat_metalli": "METALES",
-        "cat_softs": "SOFTS",
-        "cat_energies": "ENERGÍAS",
-        "cat_indici": "INDICES"
-    }
-}
-
 def main(page: ft.Page):
     # Rilevamento della lingua protetto per Android
     lang_code = "it"
@@ -73,9 +13,9 @@ def main(page: ft.Page):
     t = TRANSLATIONS[lang_code]
 
     page.title = t["title"]
-    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.vertical_alignment = ft.MainAxisAlignment.START  # Modificato in START per evitare conflitti di layout verticale
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    page.scroll = ft.ScrollMode.AUTO
+    # NOTA: Abbiamo rimosso page.scroll = ft.ScrollMode.AUTO per evitare il crash grafico su Android
     page.theme_mode = ft.ThemeMode.DARK
 
     status_text = ft.Text(t["ready"], size=14)
