@@ -3,6 +3,43 @@ import requests
 import csv
 import io
 
+TRANSLATIONS = {
+    "it": {
+        "title": "CFTC COT Analyzer",
+        "ready": "Pronto per l'analisi",
+        "downloading": "Scaricamento dati in corso...",
+        "success": "Analisi completata con successo!",
+        "error": "Errore",
+        "btn_text": "Avvia Analisi",
+        "cat_valute": "Valute",
+        "cat_grains": "Grains",
+        "cat_metalli": "Metalli",
+        "cat_softs": "Softs",
+        "cat_energies": "Energia",
+        "cat_indici": "Indici",
+        "currency_section": "--- Analisi Valute ---",
+        "top_setup": "Top Setup: {cur1} vs {cur2}",
+        "strat_signals": "Segnali Strategici:"
+    },
+    "en": {
+        "title": "CFTC COT Analyzer",
+        "ready": "Ready for analysis",
+        "downloading": "Downloading data...",
+        "success": "Analysis completed successfully!",
+        "error": "Error",
+        "btn_text": "Run Analysis",
+        "cat_valute": "Currencies",
+        "cat_grains": "Grains",
+        "cat_metalli": "Metals",
+        "cat_softs": "Softs",
+        "cat_energies": "Energies",
+        "cat_indici": "Indices",
+        "currency_section": "--- Currency Analysis ---",
+        "top_setup": "Top Setup: {cur1} vs {cur2}",
+        "strat_signals": "Strategic Signals:"
+    }
+}
+
 def main(page: ft.Page):
     # Rilevamento della lingua protetto per Android
     lang_code = "it"
@@ -156,3 +193,5 @@ def main(page: ft.Page):
             expand=True,
         )
     )
+    if __name__ == "__main__":
+    ft.app(target=main)
