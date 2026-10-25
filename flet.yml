@@ -1,0 +1,7 @@
+product_name: "COT-CFTC-SIGNAL-TRADING"
+product_version: "1.0.0"
+org: "com.cftc.app"
+
+# Questo blocca la versione esatta di Flet che deve usare la build
+dependencies:
+  - flet==0.26.0
