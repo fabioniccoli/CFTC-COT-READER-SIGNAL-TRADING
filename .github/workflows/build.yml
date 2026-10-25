@@ -17,15 +17,16 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install Flet and dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flet==0.24.1 requests
-        # Se preferisci usare il requirements.txt, assicurati che contenga flet==0.24.1
+        pip install -r requirements.txt
 
-    - name: Build APK with Flet
-      run: |
-        echo "y" | flet build apk
+    - name: Build APK with Flet Action
+      uses: flet-dev/build-app-action@v1
+      with:
+        target: 'main.py' # Assicurati che sia il nome del tuo file principale Python (es. main.py o app.py)
+        platform: 'apk'
 
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
