@@ -5,11 +5,11 @@ import io
 
 def main(page: ft.Page):
     page.title = "CFTC COT Analyzer"
-    page.theme_mode = ft.ThemeMode.DARK
+    page.bgcolor = "black"  # Forza lo sfondo nero per evitare il "muro bianco"
     page.scroll = ft.ScrollMode.AUTO
     page.padding = 15
 
-    status_text = ft.Text("Pronto per l'analisi", size=14, color="white70")
+    status_text = ft.Text("Pronto per l'analisi", size=14, color="green")
     progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
     results_column = ft.Column(spacing=5)
 
@@ -21,8 +21,6 @@ def main(page: ft.Page):
 
         try:
             url_current = "https://www.cftc.gov/dea/newcot/deafut.txt"
-            
-            # Usiamo urllib nativo di Python (nessuna dipendenza esterna che blocca Android)
             req = urllib.request.Request(
                 url_current, 
                 headers={'User-Agent': 'Mozilla/5.0'}
@@ -38,9 +36,9 @@ def main(page: ft.Page):
             count = 0
             for row in rows:
                 if row and len(row) > 0:
-                    results_column.controls.append(ft.Text(str(row[0]), size=11, font_family="monospace"))
+                    results_column.controls.append(ft.Text(str(row[0]), size=11, font_family="monospace", color="white"))
                     count += 1
-                    if count > 20:  # limitiamo per non intasare la vista
+                    if count > 20:
                         break
 
             status_text.value = "Analisi completata con successo!"
@@ -56,8 +54,9 @@ def main(page: ft.Page):
         icon=ft.icons.PLAY_ARROW
     )
     
+    # Aggiungiamo subito gli elementi alla pagina
     page.add(
-        ft.Text("CFTC COT Analyzer", size=22, weight=ft.FontWeight.BOLD),
+        ft.Text("CFTC COT Analyzer", size=22, weight=ft.FontWeight.BOLD, color="white"),
         ft.Divider(),
         status_text,
         ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.START),
