@@ -20,7 +20,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install flet==0.24.1 requests
+        # Se preferisci usare il requirements.txt, assicurati che contenga flet==0.24.1
 
     - name: Build APK with Flet
       run: |
