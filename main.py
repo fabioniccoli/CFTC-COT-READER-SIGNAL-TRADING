@@ -41,6 +41,10 @@ TRANSLATIONS = {
 }
 
 def main(page: ft.Page):
+    # --- SCRITTA DI DEBUG INIZIALE ---
+    page.add(ft.Text("L'APP SI E' APERTA CORRETTAMENTE!", size=18, color="green", weight=ft.FontWeight.BOLD))
+    page.update()
+
     # Rilevamento della lingua protetto per Android
     lang_code = "it"
     try:
@@ -55,9 +59,8 @@ def main(page: ft.Page):
     t = TRANSLATIONS[lang_code]
 
     page.title = t["title"]
-    page.vertical_alignment = ft.MainAxisAlignment.START  # Modificato in START per evitare conflitti di layout verticale
+    page.vertical_alignment = ft.MainAxisAlignment.START
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
-    # NOTA: Abbiamo rimosso page.scroll = ft.ScrollMode.AUTO per evitare il crash grafico su Android
     page.theme_mode = ft.ThemeMode.DARK
 
     status_text = ft.Text(t["ready"], size=14)
@@ -180,11 +183,9 @@ def main(page: ft.Page):
 
     analyze_btn = ft.ElevatedButton(t["btn_text"], on_click=run_analysis, icon=ft.icons.PLAY_ARROW)
     
-    # RACCHIUDIAMO TUTTO IN UNA COLONNA CON EXPAND=TRUE PER EVITARE IL CRASH GRAFICO SU ANDROID
     page.add(
         ft.Column(
             [
-                ft.Text(t["title"], size=20, weight=ft.FontWeight.BOLD),
                 status_text,
                 ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
                 ft.Divider(),
@@ -193,5 +194,6 @@ def main(page: ft.Page):
             expand=True,
         )
     )
-    if __name__ == "__main__":
-        ft.app(target=main)
+
+if __name__ == "__main__":
+    ft.app(target=main)
