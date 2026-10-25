@@ -22,15 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Accept Android licenses
-      run: |
-        export ANDROID_SDK_ROOT=$ANDROID_HOME
-        yes | sdkmanager --licenses || true
-        # Oppure forza l'accettazione tramite Flutter
-        which flutter || echo "Flutter non ancora nel PATH della build"
-        # Se Flutter viene scaricato al volo da Flet, forziamo l'invio della y
-        printf 'y\ny\ny\ny\ny\ny\ny\n' | flutter doctor --android-licenses || true
-
     - name: Build APK with Flet
       run: |
         echo "y" | flet build apk
