@@ -41,10 +41,6 @@ TRANSLATIONS = {
 }
 
 def main(page: ft.Page):
-    # --- SCRITTA DI DEBUG INIZIALE ---
-    page.add(ft.Text("L'APP SI E' APERTA CORRETTAMENTE!", size=18, color="green", weight=ft.FontWeight.BOLD))
-    page.update()
-
     # Rilevamento della lingua protetto per Android
     lang_code = "it"
     try:
@@ -183,9 +179,13 @@ def main(page: ft.Page):
 
     analyze_btn = ft.ElevatedButton(t["btn_text"], on_click=run_analysis, icon=ft.icons.PLAY_ARROW)
     
+    # RACCHIUDIAMO TUTTO IN UN'UNICA COLONNA (Incluso il messaggio di debug)
     page.add(
         ft.Column(
             [
+                ft.Text("L'APP SI E' APERTA CORRETTAMENTE!", size=16, color="green", weight=ft.FontWeight.BOLD),
+                ft.Divider(),
+                ft.Text(t["title"], size=20, weight=ft.FontWeight.BOLD),
                 status_text,
                 ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
                 ft.Divider(),
