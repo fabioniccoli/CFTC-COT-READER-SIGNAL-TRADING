@@ -3,8 +3,4 @@ product_version: "1.0.0"
 org: "com.cftc.app"
 
 dependencies:
-  - flet==0.26.0
-
-# Forza Flutter a usare una configurazione di pacchetti compatibile
-flutter:
-  uses-material-design: true
+  - flet==0.28.3
