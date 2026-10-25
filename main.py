@@ -41,6 +41,10 @@ TRANSLATIONS = {
 }
 
 def main(page: ft.Page):
+    # Abilitiamo lo scroll nativo della pagina per evitare problemi di altezza su mobile
+    page.scroll = ft.ScrollMode.AUTO
+    page.padding = 20
+
     # Rilevamento della lingua protetto per Android
     lang_code = "it"
     try:
@@ -55,19 +59,18 @@ def main(page: ft.Page):
     t = TRANSLATIONS[lang_code]
 
     page.title = t["title"]
-    page.vertical_alignment = ft.MainAxisAlignment.START
-    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.theme_mode = ft.ThemeMode.DARK
 
     status_text = ft.Text(t["ready"], size=14)
     progress_ring = ft.ProgressRing(visible=False)
-    results_view = ft.ListView(expand=1, spacing=5, padding=10, auto_scroll=True)
+    
+    # Usiamo una colonna semplice anziché ListView con expand per il debug iniziale
+    results_column = ft.Column(spacing=5)
 
-    # Funzione eseguita quando l'utente preme il pulsante
     def run_analysis(e):
         status_text.value = t["downloading"]
         progress_ring.visible = True
-        results_view.controls.clear()
+        results_column.controls.clear()
         page.update()
 
         try:
@@ -164,11 +167,11 @@ def main(page: ft.Page):
                 signals.append(t["top_setup"].format(cur1=sorted_curs[0][0], cur2=sorted_curs[-1][0]))
 
             for item in all_results:
-                results_view.controls.append(ft.Text(item, font_family="monospace", size=12))
+                results_column.controls.append(ft.Text(item, font_family="monospace", size=12))
             
-            results_view.controls.append(ft.Text(f"\n{t['strat_signals']}", weight=ft.FontWeight.BOLD))
+            results_column.controls.append(ft.Text(f"\n{t['strat_signals']}", weight=ft.FontWeight.BOLD))
             for sig in signals:
-                results_view.controls.append(ft.Text(sig, size=13, color=ft.colors.AMBER_ACCENT))
+                results_column.controls.append(ft.Text(sig, size=13, color=ft.colors.AMBER_ACCENT))
 
             status_text.value = t["success"]
         except Exception as ex:
@@ -179,20 +182,15 @@ def main(page: ft.Page):
 
     analyze_btn = ft.ElevatedButton(t["btn_text"], on_click=run_analysis, icon=ft.icons.PLAY_ARROW)
     
-    # RACCHIUDIAMO TUTTO IN UN'UNICA COLONNA (Incluso il messaggio di debug)
+    # Costruiamo la pagina aggiungendo direttamente gli elementi senza vincoli di espansione rigidi
     page.add(
-        ft.Column(
-            [
-                ft.Text("L'APP SI E' APERTA CORRETTAMENTE!", size=16, color="green", weight=ft.FontWeight.BOLD),
-                ft.Divider(),
-                ft.Text(t["title"], size=20, weight=ft.FontWeight.BOLD),
-                status_text,
-                ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
-                ft.Divider(),
-                results_view,
-            ],
-            expand=True,
-        )
+        ft.Text("L'APP SI E' APERTA CORRETTAMENTE!", size=16, color="green", weight=ft.FontWeight.BOLD),
+        ft.Divider(),
+        ft.Text(t["title"], size=20, weight=ft.FontWeight.BOLD),
+        status_text,
+        ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
+        ft.Divider(),
+        results_column
     )
 
 if __name__ == "__main__":
