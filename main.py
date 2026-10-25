@@ -1,5 +1,5 @@
 import flet as ft
-import requests
+import urllib.request
 import csv
 import io
 
@@ -21,22 +21,26 @@ def main(page: ft.Page):
 
         try:
             url_current = "https://www.cftc.gov/dea/newcot/deafut.txt"
-            headers = {'User-Agent': 'Mozilla/5.0'}
             
-            response = requests.get(url_current, headers=headers, timeout=15)
-            response.raise_for_status()
+            # Usiamo urllib nativo di Python (nessuna dipendenza esterna che blocca Android)
+            req = urllib.request.Request(
+                url_current, 
+                headers={'User-Agent': 'Mozilla/5.0'}
+            )
+            
+            with urllib.request.urlopen(req, timeout=15) as response:
+                html_content = response.read().decode('utf-8')
 
-            f = io.StringIO(response.text)
+            f = io.StringIO(html_content)
             reader = csv.reader(f)
             rows = list(reader)
 
-            # Test rapido di visualizzazione prime righe
             count = 0
             for row in rows:
                 if row and len(row) > 0:
                     results_column.controls.append(ft.Text(str(row[0]), size=11, font_family="monospace"))
                     count += 1
-                    if count > 20:  # limitiamo per non intasare subito
+                    if count > 20:  # limitiamo per non intasare la vista
                         break
 
             status_text.value = "Analisi completata con successo!"
