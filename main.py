@@ -1,3 +1,8 @@
+import flet as ft
+import requests
+import csv
+import io
+
 def main(page: ft.Page):
     # Rilevamento della lingua protetto per Android
     lang_code = "it"
