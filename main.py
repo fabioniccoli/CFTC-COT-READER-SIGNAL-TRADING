@@ -30,13 +30,13 @@ def main(page: ft.Page):
             reader = csv.reader(f)
             rows = list(reader)
 
-            # Test rapido di visualizzazione prime 5 righe per vedere se il parsing funziona
+            # Test rapido di visualizzazione prime righe
             count = 0
             for row in rows:
                 if row and len(row) > 0:
                     results_column.controls.append(ft.Text(str(row[0]), size=11, font_family="monospace"))
                     count += 1
-                    if count > 20:  limitiamo per non intasare subito
+                    if count > 20:  # limitiamo per non intasare subito
                         break
 
             status_text.value = "Analisi completata con successo!"
