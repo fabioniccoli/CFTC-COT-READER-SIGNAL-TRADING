@@ -5,13 +5,15 @@ import io
 
 def main(page: ft.Page):
     page.title = "CFTC COT Analyzer"
-    page.bgcolor = "black"  # Forza lo sfondo nero per evitare il "muro bianco"
-    page.scroll = ft.ScrollMode.AUTO
-    page.padding = 15
-
+    page.theme_mode = ft.ThemeMode.DARK
+    page.vertical_alignment = ft.MainAxisAlignment.START
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    
     status_text = ft.Text("Pronto per l'analisi", size=14, color="green")
     progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
-    results_column = ft.Column(spacing=5)
+    
+    # Usiamo una ListView o una Column interna scrollabile per i risultati
+    results_column = ft.Column(spacing=5, scroll=ft.ScrollMode.AUTO, expand=True)
 
     def run_analysis(e):
         status_text.value = "Scaricamento dati in corso..."
@@ -27,7 +29,7 @@ def main(page: ft.Page):
             )
             
             with urllib.request.urlopen(req, timeout=15) as response:
-                html_content = response.read().decode('utf-8')
+                html_content = response.read().decode('utf-8', errors='ignore')
 
             f = io.StringIO(html_content)
             reader = csv.reader(f)
@@ -38,7 +40,7 @@ def main(page: ft.Page):
                 if row and len(row) > 0:
                     results_column.controls.append(ft.Text(str(row[0]), size=11, font_family="monospace", color="white"))
                     count += 1
-                    if count > 20:
+                    if count > 30:
                         break
 
             status_text.value = "Analisi completata con successo!"
@@ -54,14 +56,20 @@ def main(page: ft.Page):
         icon=ft.icons.PLAY_ARROW
     )
     
-    # Aggiungiamo subito gli elementi alla pagina
+    # STRUTTURA DEL TEST MINIMALE: Colonna principale con expand=True
     page.add(
-        ft.Text("CFTC COT Analyzer", size=22, weight=ft.FontWeight.BOLD, color="white"),
-        ft.Divider(),
-        status_text,
-        ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.START),
-        ft.Divider(),
-        results_column
+        ft.Column(
+            [
+                ft.Text("CFTC COT Analyzer", size=20, weight=ft.FontWeight.BOLD, color="white"),
+                ft.Divider(),
+                status_text,
+                ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.CENTER),
+                ft.Divider(),
+                results_column
+            ],
+            expand=True,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER
+        )
     )
 
 if __name__ == "__main__":
