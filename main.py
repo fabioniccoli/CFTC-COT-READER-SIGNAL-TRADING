@@ -12,148 +12,144 @@ def main(page: ft.Page):
         page.theme_mode = ft.ThemeMode.DARK
         page.scroll = ft.ScrollMode.AUTO
         page.padding = 20
-        _0x0ca767 = ft.Text('CFTC COT Analyzer PRO', size=22, weight=ft.FontWeight.BOLD, color='white')
-        _0xb41d80 = ft.Text("Pronto per l'analisi", size=13, color='green')
-        _0x0be357 = ft.ProgressRing(visible=False, width=20, height=20)
-        _0x230e53 = ft.Column(spacing=2)
-        _0xc3b61c = ft.Container(content=_0x230e53, padding=ft.padding.only(bottom=100))
-        _0xe522f1 = ft.Row([_0xc3b61c], scroll=ft.ScrollMode.AUTO, alignment=ft.MainAxisAlignment.START)
+        _0x59af68 = ft.Text('CFTC COT Analyzer PRO', size=22, weight=ft.FontWeight.BOLD, color='white')
+        _0x83049c = ft.Text("Pronto per l'analisi", size=13, color='green')
+        _0x206e6c = ft.ProgressRing(visible=False, width=20, height=20)
+        _0xbb4451 = ft.Column(spacing=2)
+        _0x5c6a17 = ft.Container(content=_0xbb4451, padding=ft.padding.only(bottom=100))
+        _0x34dab4 = ft.Row([_0x5c6a17], scroll=ft.ScrollMode.AUTO, alignment=ft.MainAxisAlignment.START)
 
-        def change_language(_0x7729d0):
-            _0xe16536 = TRANSLATIONS[_0xc4e660.value]
-            _0x0ca767.value = _0xe16536['title']
-            _0xc5c92b.text = _0xe16536['btn_ready']
-            _0xf701a0.text = _0xe16536['btn_charts']
-            _0xb41d80.value = _0xe16536['status_ready']
+        def change_language(_0x0f4ae6):
+            _0xc06cbb = TRANSLATIONS[_0xe4d8ff.value]
+            _0x59af68.value = _0xc06cbb['title']
+            _0x0d3d48.text = _0xc06cbb['btn_ready']
+            _0xe3b5e0.text = _0xc06cbb['btn_charts']
+            _0x83049c.value = _0xc06cbb['status_ready']
             page.update()
-        _0xc4e660 = ft.Dropdown(label='Language / Lingua', value='Italiano', options=[ft.dropdown.Option(_0xfdd79c) for _0xfdd79c in TRANSLATIONS.keys()], on_change=change_language, width=180, text_size=12, label_style=ft.TextStyle(size=12))
+        _0xe4d8ff = ft.Dropdown(label='Language / Lingua', value='Italiano', options=[ft.dropdown.Option(_0xe887fe) for _0xe887fe in TRANSLATIONS.keys()], on_change=change_language, width=180, text_size=12, label_style=ft.TextStyle(size=12))
 
-        def open_charts(_0x7729d0):
+        def open_charts(_0x0f4ae6):
             page.launch_url('https://www.barchart.com/futures/commitment-of-traders')
 
-        def run_analysis(_0x7729d0):
-            _0xe16536 = TRANSLATIONS[_0xc4e660.value]
-            _0xb41d80.value = _0xe16536['status_download']
-            _0x0be357.visible = True
-            _0x230e53.controls.clear()
+        def run_analysis(_0x0f4ae6):
+            _0xc06cbb = TRANSLATIONS[_0xe4d8ff.value]
+            _0x83049c.value = _0xc06cbb['status_download']
+            _0x206e6c.visible = True
+            _0xbb4451.controls.clear()
             page.update()
             try:
-                _0x91ad40 = 'https://www.cftc.gov/dea/newcot/deafut.txt'
-                _0xe6bfae = urllib.request.Request(_0x91ad40, headers={'User-Agent': 'Mozilla/5.0'})
-                with urllib.request.urlopen(_0xe6bfae, timeout=15) as _0xa4e769:
-                    _0x7e1341 = _0xa4e769.read().decode('utf-8', errors='ignore')
-                _0x8b61c8 = io.StringIO(_0x7e1341)
-                _0x4a3df3 = csv.reader(_0x8b61c8)
-                _0xe16799 = list(_0x4a3df3)
-                _0xf9d623 = {_0xe16536['cat_valute']: ['SWISS FRANC', 'USD INDEX', 'MEXICAN PESO', 'NZ DOLLAR', 'CANADIAN DOLLAR', 'BRAZILIAN REAL', 'SOUTH AFRICAN RAND', 'BRITISH POUND', 'JAPANESE YEN', 'EURO FX', 'AUSTRALIAN DOLLAR'], _0xe16536['cat_grains']: ['CORN', 'SOYBEANS', 'SOYBEAN OIL', 'SOYBEAN MEAL', 'WHEAT-SRW', 'WHEAT-HRW', 'WHEAT-SPRING', 'ROUGH RICE', 'CANOLA'], _0xe16536['cat_metalli']: ['GOLD', 'SILVER', 'COPPER', 'PALLADIUM', 'PLATINUM', 'ALUMINUM'], _0xe16536['cat_softs']: ['COCOA', 'COTTON', 'COFFEE', 'SUGAR', 'ORANGE JUICE', 'LUMBER'], _0xe16536['cat_energies']: ['CRUDE OIL', 'GASOLINE', 'NY HARBOR ULSD', 'NATURAL GAS', 'ETHANOL'], _0xe16536['cat_indici']: ['S&P 500', 'NASDAQ-100', 'DOW JONES', 'RUSSELL 2000', 'VIX']}
-                _0xb24178 = []
-                _0xe8ba90 = {}
-                for _0x783c8b, _0x2b1378 in _0xf9d623.items():
-                    _0xb24178.append((_0x783c8b, 'HEADER'))
-                    for _0x7cb940 in _0x2b1378:
-                        for _0x4fa265 in _0xe16799:
-                            if not _0x4fa265 or len(_0x4fa265) < 40:
+                _0x0e9298 = 'https://www.cftc.gov/dea/newcot/deafut.txt'
+                _0x5f5183 = urllib.request.Request(_0x0e9298, headers={'User-Agent': 'Mozilla/5.0'})
+                with urllib.request.urlopen(_0x5f5183, timeout=15) as _0x944407:
+                    _0x7a2c18 = _0x944407.read().decode('utf-8', errors='ignore')
+                _0x093b46 = io.StringIO(_0x7a2c18)
+                _0x25a5a5 = csv.reader(_0x093b46)
+                _0xa0dd03 = list(_0x25a5a5)
+                _0x438210 = {_0xc06cbb['cat_valute']: ['SWISS FRANC', 'USD INDEX', 'MEXICAN PESO', 'NZ DOLLAR', 'CANADIAN DOLLAR', 'BRAZILIAN REAL', 'SOUTH AFRICAN RAND', 'BRITISH POUND', 'JAPANESE YEN', 'EURO FX', 'AUSTRALIAN DOLLAR'], _0xc06cbb['cat_grains']: ['CORN', 'SOYBEANS', 'SOYBEAN OIL', 'SOYBEAN MEAL', 'WHEAT-SRW', 'WHEAT-HRW', 'WHEAT-SPRING', 'ROUGH RICE', 'CANOLA'], _0xc06cbb['cat_metalli']: ['GOLD', 'SILVER', 'COPPER', 'PALLADIUM', 'PLATINUM', 'ALUMINUM'], _0xc06cbb['cat_softs']: ['COCOA', 'COTTON', 'COFFEE', 'SUGAR', 'ORANGE JUICE', 'LUMBER'], _0xc06cbb['cat_energies']: ['CRUDE OIL', 'GASOLINE', 'NY HARBOR ULSD', 'NATURAL GAS', 'ETHANOL'], _0xc06cbb['cat_indici']: ['S&P 500', 'NASDAQ-100', 'DOW JONES', 'RUSSELL 2000', 'VIX']}
+                _0xfda54f = []
+                _0xc55543 = {}
+                for _0x6af8f5, _0xb2b3e4 in _0x438210.items():
+                    _0xfda54f.append((_0x6af8f5, 'HEADER'))
+                    for _0x35fb55 in _0xb2b3e4:
+                        for _0x9c3660 in _0xa0dd03:
+                            if not _0x9c3660 or len(_0x9c3660) < 40:
                                 continue
-                            _0xdc9f20 = str(_0x4fa265[0]).strip()
-                            if _0x7cb940.upper() in _0xdc9f20.upper():
+                            _0xe2915b = str(_0x9c3660[0]).strip()
+                            if _0x35fb55.upper() in _0xe2915b.upper():
                                 try:
-                                    _0x0ad1e2 = float(_0x4fa265[7]) if _0x4fa265[7].strip() and float(_0x4fa265[7]) > 0 else 1
-                                    _0x8d5182 = float(_0x4fa265[8]) if _0x4fa265[8].strip() else 0
-                                    _0xdd3436 = float(_0x4fa265[9]) if _0x4fa265[9].strip() else 0
-                                    _0x796aa0 = int(float(_0x4fa265[38])) if _0x4fa265[38].strip() else 0
-                                    _0x1bf8f6 = int(float(_0x4fa265[39])) if _0x4fa265[39].strip() else 0
-                                    _0x91b743 = _0x8d5182 / _0x0ad1e2 * 100
-                                    _0x17e8a7 = _0xdd3436 / _0x0ad1e2 * 100
-                                    _0xdab56d = _0x8d5182 - _0x796aa0
-                                    _0xb0a516 = _0xdd3436 - _0x1bf8f6
-                                    _0x776fbd = _0x796aa0 / _0xdab56d * 100 if _0xdab56d > 0 else 0
-                                    _0xe21bf0 = _0x1bf8f6 / _0xb0a516 * 100 if _0xb0a516 > 0 else 0
-                                    _0x5a5a7d = _0x91b743 + _0x776fbd / 10.0
-                                    _0xef4e26 = _0x17e8a7 + _0xe21bf0 / 10.0
-                                    _0xa11381 = _0x5a5a7d - _0xef4e26
-                                    if _0xa11381 > 15:
-                                        _0x551d85 = 'STRONG LONG'
-                                    elif _0xa11381 > 5:
-                                        _0x551d85 = 'MODERATE LONG'
-                                    elif _0xa11381 < -15:
-                                        _0x551d85 = 'STRONG SHORT'
-                                    elif _0xa11381 < -5:
-                                        _0x551d85 = 'MODERATE SHORT'
+                                    _0xc62188 = float(_0x9c3660[7]) if _0x9c3660[7].strip() and float(_0x9c3660[7]) > 0 else 1
+                                    _0x40a914 = float(_0x9c3660[8]) if _0x9c3660[8].strip() else 0
+                                    _0x073cc2 = float(_0x9c3660[9]) if _0x9c3660[9].strip() else 0
+                                    _0x71f460 = int(float(_0x9c3660[38])) if _0x9c3660[38].strip() else 0
+                                    _0x995d61 = int(float(_0x9c3660[39])) if _0x9c3660[39].strip() else 0
+                                    _0xe24012 = _0x40a914 / _0xc62188 * 100
+                                    _0x93d901 = _0x073cc2 / _0xc62188 * 100
+                                    _0x7c2ec6 = _0x40a914 - _0x71f460
+                                    _0x731867 = _0x073cc2 - _0x995d61
+                                    _0x7e8fbd = _0x71f460 / _0x7c2ec6 * 100 if _0x7c2ec6 > 0 else 0
+                                    _0xde027a = _0x995d61 / _0x731867 * 100 if _0x731867 > 0 else 0
+                                    _0x3d0de9 = _0xe24012 + _0x7e8fbd / 10.0
+                                    _0xf93c2f = _0x93d901 + _0xde027a / 10.0
+                                    _0xb72ff0 = _0x3d0de9 - _0xf93c2f
+                                    if _0xb72ff0 > 15:
+                                        _0x5b09c3 = 'STRONG LONG'
+                                    elif _0xb72ff0 > 5:
+                                        _0x5b09c3 = 'MODERATE LONG'
+                                    elif _0xb72ff0 < -15:
+                                        _0x5b09c3 = 'STRONG SHORT'
+                                    elif _0xb72ff0 < -5:
+                                        _0x5b09c3 = 'MODERATE SHORT'
                                     else:
-                                        _0x551d85 = 'NEUTRAL'
-                                    _0x931a72 = f'{_0xdc9f20[:32]:<34} | Long: {_0x91b743:5.1f}% ({_0x796aa0:+6d} ctr) | Short: {_0x17e8a7:5.1f}% ({_0x1bf8f6:+6d} ctr) | Net Slope: {_0xa11381:+6.1f} [{_0x551d85}]'
-                                    _0xb24178.append((_0x931a72, 'MARKET', _0x7cb940.upper()))
-                                    _0xf8cd0d = _0x7cb940.upper()
-                                    _0xe8ba90[_0xf8cd0d] = {'name': _0xdc9f20, 'pct_long': _0x91b743, 'pct_short': _0x17e8a7, 'chg_long': _0x796aa0, 'chg_short': _0x1bf8f6, 'net_slope': _0xa11381}
+                                        _0x5b09c3 = 'NEUTRAL'
+                                    _0x8ba4a4 = f'{_0xe2915b[:32]:<34} | Long: {_0xe24012:5.1f}% ({_0x71f460:+6d} ctr) | Short: {_0x93d901:5.1f}% ({_0x995d61:+6d} ctr) | Net Slope: {_0xb72ff0:+6.1f} [{_0x5b09c3}]'
+                                    _0xfda54f.append((_0x8ba4a4, 'MARKET', _0x35fb55.upper()))
+                                    _0xea38f4 = _0x35fb55.upper()
+                                    _0xc55543[_0xea38f4] = {'name': _0xe2915b, 'pct_long': _0xe24012, 'pct_short': _0x93d901, 'chg_long': _0x71f460, 'chg_short': _0x995d61, 'net_slope': _0xb72ff0}
                                     break
                                 except Exception:
                                     pass
-                _0x5d0f86 = []
-                _0x280461 = {'EURO FX': 'EUR', 'BRITISH POUND': 'GBP', 'JAPANESE YEN': 'JPY', 'AUSTRALIAN DOLLAR': 'AUD', 'NZ DOLLAR': 'NZD', 'CANADIAN DOLLAR': 'CAD', 'SWISS FRANC': 'CHF', 'USD INDEX': 'USD'}
-                _0xcc27ca = {}
-                for _0x60364b, _0x5718f9 in _0x280461.items():
-                    if _0x60364b in _0xe8ba90:
-                        _0xcc27ca[_0x5718f9] = _0xe8ba90[_0x60364b]['net_slope']
-                _0x6b9f88 = _0xc2b7e9(_0xcc27ca.items(), key=lambda _0x7c9711: _0x7c9711[1], reverse=True)
-                _0x5d0f86.append((_0xe16536['sig_valute'], 'SUBHEADER'))
-                if len(_0x6b9f88) >= 2:
-                    _0x5d0f86.append((f'-> [TOP SETUP ABS] {_0x6b9f88[0][0]}/{_0x6b9f88[-1][0]} | Max div ({_0x6b9f88[0][0]}: {_0x6b9f88[0][1]:+.1f} vs {_0x6b9f88[-1][0]}: {_0x6b9f88[-1][1]:+.1f})', 'TEXT'))
-                _0x22636c = [('EUR', 'USD'), ('GBP', 'USD'), ('AUD', 'USD'), ('NZD', 'USD'), ('USD', 'JPY'), ('USD', 'CAD'), ('USD', 'CHF'), ('EUR', 'GBP'), ('EUR', 'JPY'), ('GBP', 'JPY'), ('AUD', 'JPY')]
-                _0x5d0f86.append((_0xe16536['sec_cross'], 'SUBHEADER'))
-                for _0xc36c42, _0xf689de in _0x22636c:
-                    if _0xc36c42 in _0xcc27ca and _0xf689de in _0xcc27ca:
-                        _0x414aeb, _0xc363d1 = (_0xcc27ca[_0xc36c42], _0xcc27ca[_0xf689de])
-                        _0xe9f860 = _0x414aeb - _0xc363d1
-                        if _0xe9f860 > 10:
-                            _0x5d0f86.append((_0xe16536['cross_long'].format(base=_0xc36c42, quote=_0xf689de, s_base=_0x414aeb, s_quote=_0xc363d1), 'TEXT'))
-                        elif _0xe9f860 < -10:
-                            _0x5d0f86.append((_0xe16536['cross_short'].format(base=_0xc36c42, quote=_0xf689de, s_base=_0x414aeb, s_quote=_0xc363d1), 'TEXT'))
-                _0x5d0f86.append((_0xe16536['sec_commodities'], 'SUBHEADER'))
-                _0xbd5880 = ['GOLD', 'SILVER', 'CRUDE OIL', 'COPPER', 'LUMBER', 'CORN', 'SOYBEANS']
-                _0x4be466 = _0xcc27ca.get('USD', 0)
-                for _0xf6ee4d in _0xbd5880:
-                    _0x56f3bb = _0xe8ba90.get(_0xf6ee4d)
-                    if _0x56f3bb:
-                        _0x75b073 = _0x56f3bb['name'].split('-')[0].strip()
-                        _0xed1733 = _0x56f3bb['net_slope']
-                        if _0x56f3bb['pct_short'] > 60 and _0x56f3bb['chg_short'] < 0:
-                            _0x5d0f86.append((_0xe16536['comm_squeeze'].format(name=_0x75b073, slope=_0xed1733), 'TEXT'))
-                        elif _0xed1733 > 15 and _0x4be466 < 0:
-                            _0x5d0f86.append((_0xe16536['comm_bullish'].format(name=_0x75b073, slope=_0xed1733), 'TEXT'))
-                        elif _0xed1733 < -15 and _0x4be466 > 0:
-                            _0x5d0f86.append((_0xe16536['comm_bearish'].format(name=_0x75b073, slope=_0xed1733), 'TEXT'))
-                _0x230e53.controls.append(ft.Text(_0xe16536['report_header'], weight=ft.FontWeight.BOLD, color='yellow', size=11))
-                _0x230e53.controls.append(ft.Text('=' * 70, color='white24', size=10))
-                for _0x7f9c97 in _0xb24178:
-                    if _0x7f9c97[1] == 'HEADER':
-                        _0x230e53.controls.append(ft.Text(f'\n--- {_0x7f9c97[0]} ---', weight=ft.FontWeight.BOLD, color='cyan', size=12))
+                _0x40f23c = []
+                _0xc21e08 = {'EURO FX': 'EUR', 'BRITISH POUND': 'GBP', 'JAPANESE YEN': 'JPY', 'AUSTRALIAN DOLLAR': 'AUD', 'NZ DOLLAR': 'NZD', 'CANADIAN DOLLAR': 'CAD', 'SWISS FRANC': 'CHF', 'USD INDEX': 'USD'}
+                _0x355612 = {}
+                for _0x63387a, _0xfabf09 in _0xc21e08.items():
+                    if _0x63387a in _0xc55543:
+                        _0x355612[_0xfabf09] = _0xc55543[_0x63387a]['net_slope']
+                _0xa466da = _0xff26ef(_0x355612.items(), key=lambda _0xd7da72: _0xd7da72[1], reverse=True)
+                _0x40f23c.append((_0xc06cbb['sig_valute'], 'SUBHEADER'))
+                if len(_0xa466da) >= 2:
+                    _0x40f23c.append((f'-> [TOP SETUP ABS] {_0xa466da[0][0]}/{_0xa466da[-1][0]} | Max div ({_0xa466da[0][0]}: {_0xa466da[0][1]:+.1f} vs {_0xa466da[-1][0]}: {_0xa466da[-1][1]:+.1f})', 'TEXT'))
+                _0xa05a48 = [('EUR', 'USD'), ('GBP', 'USD'), ('AUD', 'USD'), ('NZD', 'USD'), ('USD', 'JPY'), ('USD', 'CAD'), ('USD', 'CHF'), ('EUR', 'GBP'), ('EUR', 'JPY'), ('GBP', 'JPY'), ('AUD', 'JPY')]
+                _0x40f23c.append((_0xc06cbb['sec_cross'], 'SUBHEADER'))
+                for _0x718d34, _0x357cab in _0xa05a48:
+                    if _0x718d34 in _0x355612 and _0x357cab in _0x355612:
+                        _0x0b28a9, _0x5cd9c7 = (_0x355612[_0x718d34], _0x355612[_0x357cab])
+                        _0x559e06 = _0x0b28a9 - _0x5cd9c7
+                        if _0x559e06 > 10:
+                            _0x40f23c.append((_0xc06cbb['cross_long'].format(base=_0x718d34, quote=_0x357cab, s_base=_0x0b28a9, s_quote=_0x5cd9c7), 'TEXT'))
+                        elif _0x559e06 < -10:
+                            _0x40f23c.append((_0xc06cbb['cross_short'].format(base=_0x718d34, quote=_0x357cab, s_base=_0x0b28a9, s_quote=_0x5cd9c7), 'TEXT'))
+                _0x40f23c.append((_0xc06cbb['sec_commodities'], 'SUBHEADER'))
+                _0xe46286 = ['GOLD', 'SILVER', 'CRUDE OIL', 'COPPER', 'LUMBER', 'CORN', 'SOYBEANS']
+                _0xabf819 = _0x355612.get('USD', 0)
+                for _0x0346fd in _0xe46286:
+                    _0x3017be = _0xc55543.get(_0x0346fd)
+                    if _0x3017be:
+                        _0x89c0a7 = _0x3017be['name'].split('-')[0].strip()
+                        _0xaf6906 = _0x3017be['net_slope']
+                        if _0x3017be['pct_short'] > 60 and _0x3017be['chg_short'] < 0:
+                            _0x40f23c.append((_0xc06cbb['comm_squeeze'].format(name=_0x89c0a7, slope=_0xaf6906), 'TEXT'))
+                        elif _0xaf6906 > 15 and _0xabf819 < 0:
+                            _0x40f23c.append((_0xc06cbb['comm_bullish'].format(name=_0x89c0a7, slope=_0xaf6906), 'TEXT'))
+                        elif _0xaf6906 < -15 and _0xabf819 > 0:
+                            _0x40f23c.append((_0xc06cbb['comm_bearish'].format(name=_0x89c0a7, slope=_0xaf6906), 'TEXT'))
+                _0xbb4451.controls.append(ft.Text(_0xc06cbb['report_header'], weight=ft.FontWeight.BOLD, color='yellow', size=11))
+                _0xbb4451.controls.append(ft.Text('=' * 70, color='white24', size=10))
+                for _0xe240a6 in _0xfda54f:
+                    if _0xe240a6[1] == 'HEADER':
+                        _0xbb4451.controls.append(ft.Text(f'\n--- {_0xe240a6[0]} ---', weight=ft.FontWeight.BOLD, color='cyan', size=12))
                     else:
-                        _0xf4dff7 = _0x7f9c97[0]
-                        _0xaf4ee8 = _0x7f9c97[2]
-                        _0x0e33b2 = BARCHART_LINKS.get(_0xaf4ee8, 'https://www.barchart.com/futures/commitment-of-traders')
-                        _0x230e53.controls.append(ft.TextButton(content=ft.Text(_0xf4dff7, font_family='monospace', size=11, color='white'), on_click=lambda _0x7729d0, _0x299ab4=_0x0e33b2: page.launch_url(_0x299ab4), style=ft.ButtonStyle(padding=0)))
-                _0x230e53.controls.append(ft.Text('\n' + '=' * 70, color='white24', size=10))
-                _0x230e53.controls.append(ft.Text(_0xe16536['screening_header'], weight=ft.FontWeight.BOLD, color='yellow', size=11))
-                _0x230e53.controls.append(ft.Text('=' * 70, color='white24', size=10))
-                for _0x97b4ca, _0xc428bf in _0x5d0f86:
-                    if _0xc428bf == 'SUBHEADER':
-                        _0x230e53.controls.append(ft.Text(f'\n{_0x97b4ca}', weight=ft.FontWeight.BOLD, color='amber', size=12))
+                        _0xe20749 = _0xe240a6[0]
+                        _0xfef3af = _0xe240a6[2]
+                        _0x77ae1e = BARCHART_LINKS.get(_0xfef3af, 'https://www.barchart.com/futures/commitment-of-traders')
+                        _0xbb4451.controls.append(ft.TextButton(content=ft.Text(_0xe20749, font_family='monospace', size=11, color='white'), on_click=lambda _0x0f4ae6, _0xeddbdc=_0x77ae1e: page.launch_url(_0xeddbdc), style=ft.ButtonStyle(padding=0)))
+                _0xbb4451.controls.append(ft.Text('\n' + '=' * 70, color='white24', size=10))
+                _0xbb4451.controls.append(ft.Text(_0xc06cbb['screening_header'], weight=ft.FontWeight.BOLD, color='yellow', size=11))
+                _0xbb4451.controls.append(ft.Text('=' * 70, color='white24', size=10))
+                for _0x1500c0, _0xb7ea0c in _0x40f23c:
+                    if _0xb7ea0c == 'SUBHEADER':
+                        _0xbb4451.controls.append(ft.Text(f'\n{_0x1500c0}', weight=ft.FontWeight.BOLD, color='amber', size=12))
                     else:
-                        _0x230e53.controls.append(ft.Text(_0x97b4ca, size=11, color='white70'))
-                _0xb41d80.value = _0xe16536['status_success']
+                        _0xbb4451.controls.append(ft.Text(_0x1500c0, size=11, color='white70'))
+                _0x83049c.value = _0xc06cbb['status_success']
             except Exception as ex:
-                _0xb41d80.value = f"Errore durante l'esecuzione: {_0xedcdfa}"
-            _0x0be357.visible = False
+                _0x83049c.value = f"Errore durante l'esecuzione: {_0xc0cb86}"
+            _0x206e6c.visible = False
             page.update()
-        _0xba87df = TRANSLATIONS['Italiano']
-        _0xc5c92b = ft.ElevatedButton(_0xba87df['btn_ready'], on_click=run_analysis, bgcolor='blue', color='white')
-        _0xf701a0 = ft.ElevatedButton(_0xba87df['btn_charts'], on_click=open_charts, bgcolor='green', color='white')
-        page.add(_0x0ca767, _0xc4e660, ft.Divider(height=15, color='white24'), _0xb41d80, ft.Container(height=5), ft.Row([_0xc5c92b, _0xf701a0, _0x0be357], alignment=ft.MainAxisAlignment.START, spacing=10), ft.Divider(height=15, color='white24'), _0xe522f1)
-    except Exception as initialization_error:
-        page.clean()
-        page.add(ft.Text('ERRORE CRITICO DI AVVIO:', size=18, color='red', weight=ft.FontWeight.BOLD), ft.Text(str(_0x5beef6), size=14, color='white'))
-        page.update()
-if __name__ == '__main__':
-    ft.app(target=main)
+        _0x0f5e3a = TRANSLATIONS['Italiano']
+        _0x0d3d48 = ft.ElevatedButton(_0x0f5e3a['btn_ready'], on_click=run_analysis, bgcolor='blue', color='white')
+        _0xe3b5e0 = ft.ElevatedButton(_0x0f5e3a['btn_charts'], on_click=open_charts, bgcolor='green', color='white')
+        page.add(_0x59af68, _0xe4d8ff, ft.Divider(height=15, color='white24'), _0x83049c, ft.Container(height=5), ft.Row([_0x0d3d48, _0xe3b5e0, _0x206e6c], alignment=ft.MainAxisAlignment.START, spacing=10), ft.Divider(height=15, color='white24'), _0x34dab4)
+    except Exception as ex:
+        _0x83049c.value = f'ERRORE: {_0x0d8cc3(_0xc0cb86).__name__} - {str(_0xc0cb86)}'
 if __name__ == '__main__':
     ft.app(target=main)
