@@ -109,7 +109,6 @@ TRANSLATIONS = {
     }
 }
 
-# Mappatura link Barchart per i mercati principali (Contratti Continui *0)
 BARCHART_LINKS = {
     "EURO FX": "https://www.barchart.com/futures/quotes/6E*0",
     "BRITISH POUND": "https://www.barchart.com/futures/quotes/6B*0",
@@ -168,14 +167,12 @@ def main(page: ft.Page):
         status_text = ft.Text(t["status_ready"], size=13, color="green")
         progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
         
-        # Risultati con scroll verticale e padding extra in basso per i tasti virtuali dello smartphone
         results_column = ft.Column(spacing=4)
         results_container = ft.Container(
             content=results_column,
             padding=ft.padding.only(bottom=100)
         )
 
-        # Scroll orizzontale per preservare la formattazione a spaziatura fissa
         horizontal_scroll_view = ft.Row(
             [results_container],
             scroll=ft.ScrollMode.AUTO,
@@ -183,7 +180,6 @@ def main(page: ft.Page):
         )
 
         def open_charts(e):
-            # Apre la pagina principale dei futures su Barchart o un hub di grafici
             page.launch_url("https://www.barchart.com/futures")
 
         def run_analysis(e):
@@ -299,7 +295,6 @@ def main(page: ft.Page):
                                 except Exception:
                                     pass
 
-                # Motore di screening e strategia
                 signals = []
                 currencies = {
                     "EURO FX": "EUR", "BRITISH POUND": "GBP", "JAPANESE YEN": "JPY",
@@ -351,7 +346,6 @@ def main(page: ft.Page):
                         elif slope < -15 and usd_slope > 0:
                             signals.append(f"-> [COMMODITY / BEARISH] {c_name}: Forte short con USD forte (Slope: {slope:+.1f}).")
 
-                # Popolamento UI
                 results_column.controls.append(ft.Text(t["report_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
                 results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
@@ -359,7 +353,6 @@ def main(page: ft.Page):
                     if item.startswith("\n---"):
                         results_column.controls.append(ft.Text(item, weight=ft.FontWeight.BOLD, color="cyan", size=12))
                     else:
-                        # Rendiamo ogni riga di mercato cliccabile per aprire il grafico Barchart corrispondente se disponibile
                         market_key = None
                         for key in BARCHART_LINKS.keys():
                             if key in item.upper():
@@ -402,12 +395,12 @@ def main(page: ft.Page):
             color="white"
         )
 
+        # Pulsante verde senza dipendenze da ft.icons per evitare errori di versione
         charts_btn = ft.ElevatedButton(
             t["btn_charts"],
             on_click=open_charts,
             bgcolor="green",
-            color="white",
-            icon=ft.icons.SHOW_CHART
+            color="white"
         )
 
         page.add(
