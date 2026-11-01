@@ -10,12 +10,13 @@ TRANSLATIONS = {
     "Italiano": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Avvia Analisi",
+        "btn_charts": "Apri Grafici Barchart",
         "status_ready": "Pronto per l'analisi",
         "status_download": "Scaricamento dei dati dal report Legacy CFTC...",
         "status_success": "Analisi completata con successo!",
         "error_prefix": "Errore durante l'esecuzione: ",
-        "report_header": "REPORT COT (LEGACY) - MATRICE DI INCROCIO UNIVERSALE",
-        "screening_header": "SCREENING STRATEGICO & INCROCI MULTI-VALUTA",
+        "report_header": "REPORT COT (LEGACY) - REPORT ANALITICO CON NET SLOPE",
+        "screening_header": "SCREENING STRATEGICO & INCROCI MULTI-VALUTA / COMMODITIES",
         "cat_valute": "VALUTE",
         "cat_grains": "MATERIE PRIME - GRAINS",
         "cat_metalli": "METALLI",
@@ -23,27 +24,19 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIES",
         "cat_indici": "INDICI",
         "sig_valute": "--- INCROCI VALUTARI (Forza Relativa Universale) ---",
-        "top_setup": "-> [VALUTA TOP SETUP] Valutare LONG su {strong}/{weak}: Massima divergenza di forza istituzionale.",
-        "long_aud_usd": "-> [VALUTA CROSS] Setup favorevole per LONG su AUD/USD.",
-        "short_aud_usd": "-> [VALUTA CROSS] Setup favorevole per SHORT su AUD/USD.",
-        "long_eur_gbp": "-> [VALUTA CROSS] Monitorare LONG su EUR/GBP.",
-        "short_eur_gbp": "-> [VALUTA CROSS] Monitorare SHORT su EUR/GBP.",
-        "sec_commodities": "\n--- MATERIE PRIME & COMMODITIES ---",
-        "squeeze": "-> [MATERIA PRIMA / POSSIBILE SQUEEZE] {name}: Short in chiusura ({val:+d} contratti).",
-        "momentum": "-> [MATERIA PRIMA / MOMENTUM RIALZISTA] {name}: Spinta dei fondi ({val:+d} contratti).",
-        "sec_indices": "\n--- INDICI AZIONARI ---",
-        "ind_continuation": "-> [INDICE / CONTINUAZIONE] {name}: Accumulo rialzista ({val:+d} contratti).",
-        "ind_correction": "-> [INDICE / ALLERTA CORREZIONE] {name}: Crescita posizioni ribassiste ({val:+d} contratti)."
+        "sec_commodities": "\n--- MATERIE PRIME & CORRELAZIONE COMMODITIES ---",
+        "sec_indices": "\n--- INDICI AZIONARI ---"
     },
     "English": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Start Analysis",
+        "btn_charts": "Open Barchart Charts",
         "status_ready": "Ready for analysis",
         "status_download": "Downloading data from CFTC Legacy report...",
         "status_success": "Analysis completed successfully!",
         "error_prefix": "Execution error: ",
-        "report_header": "COT REPORT (LEGACY) - UNIVERSAL CROSS MATRIX",
-        "screening_header": "STRATEGIC SCREENING & MULTI-CURRENCY CROSSES",
+        "report_header": "COT REPORT (LEGACY) - ANALYTICAL REPORT WITH NET SLOPE",
+        "screening_header": "STRATEGIC SCREENING & MULTI-CURRENCY / COMMODITIES CROSSES",
         "cat_valute": "CURRENCIES",
         "cat_grains": "COMMODITIES - GRAINS",
         "cat_metalli": "METALS",
@@ -51,27 +44,19 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIES",
         "cat_indici": "INDICES",
         "sig_valute": "--- CURRENCY CROSSES (Universal Relative Strength) ---",
-        "top_setup": "-> [CURRENCY TOP SETUP] Consider LONG on {strong}/{weak}: Maximum institutional strength divergence.",
-        "long_aud_usd": "-> [CURRENCY CROSS] Favorable setup for LONG on AUD/USD.",
-        "short_aud_usd": "-> [CURRENCY CROSS] Favorable setup for SHORT on AUD/USD.",
-        "long_eur_gbp": "-> [CURRENCY CROSS] Monitor LONG on EUR/GBP.",
-        "short_eur_gbp": "-> [CURRENCY CROSS] Monitor SHORT on EUR/GBP.",
-        "sec_commodities": "\n--- COMMODITIES ---",
-        "squeeze": "-> [COMMODITY / POTENTIAL SQUEEZE] {name}: Short covering ({val:+d} contracts).",
-        "momentum": "-> [COMMODITY / BULLISH MOMENTUM] {name}: Funds buying pressure ({val:+d} contracts).",
-        "sec_indices": "\n--- STOCK INDICES ---",
-        "ind_continuation": "-> [INDEX / CONTINUATION] {name}: Bullish accumulation ({val:+d} contracts).",
-        "ind_correction": "-> [INDEX / CORRECTION ALERT] {name}: Bearish positions growth ({val:+d} contracts)."
+        "sec_commodities": "\n--- COMMODITIES & CORRELATION ---",
+        "sec_indices": "\n--- STOCK INDICES ---"
     },
     "Español": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Iniciar Análisis",
+        "btn_charts": "Abrir Gráficos Barchart",
         "status_ready": "Listo para el análisis",
         "status_download": "Descargando datos del informe Legacy CFTC...",
         "status_success": "¡Análisis completado con éxito!",
         "error_prefix": "Error durante la ejecución: ",
-        "report_header": "INFORME COT (LEGACY) - MATRIZ DE CRUCE UNIVERSAL",
-        "screening_header": "SELECCIÓN ESTRÁTEGICA Y CRUCES DE DIVISAS",
+        "report_header": "INFORME COT (LEGACY) - INFORME ANALÍTICO CON NET SLOPE",
+        "screening_header": "SELECCIÓN ESTRATÉGICA Y CRUCES DE DIVISAS / COMMODITIES",
         "cat_valute": "MONEDAS",
         "cat_grains": "MATERIAS PRIMAS - GRAINS",
         "cat_metalli": "METALES",
@@ -79,27 +64,19 @@ TRANSLATIONS = {
         "cat_energies": "ENERGÍAS",
         "cat_indici": "INDICES",
         "sig_valute": "--- CRUCES DE MONEDAS (Fuerza Relativa Universal) ---",
-        "top_setup": "-> [DIVISA TOP SETUP] Evaluar LONG en {strong}/{weak}: Máxima divergencia de fuerza institucional.",
-        "long_aud_usd": "-> [DIVISA CROSS] Configuración favorable para LONG en AUD/USD.",
-        "short_aud_usd": "-> [DIVISA CROSS] Configuración favorable para SHORT en AUD/USD.",
-        "long_eur_gbp": "-> [DIVISA CROSS] Monitorear LONG en EUR/GBP.",
-        "short_eur_gbp": "-> [DIVISA CROSS] Monitorear SHORT en EUR/GBP.",
         "sec_commodities": "\n--- MATERIAS PRIMAS ---",
-        "squeeze": "-> [MATERIA PRIMA / POSIBLE SQUEEZE] {name}: Cierre de cortos ({val:+d} contratos).",
-        "momentum": "-> [MATERIA PRIMA / MOMENTUM ALCISTA] {name}: Presión compradora de fondos ({val:+d} contratos).",
-        "sec_indices": "\n--- ÍNDICES BURSÁTILES ---",
-        "ind_continuation": "-> [ÍNDICE / CONTINUACIÓN] {name}: Acumulación alcista ({val:+d} contratos).",
-        "ind_correction": "-> [ÍNDICE / ALERTA CORRECCIÓN] {name}: Crecimiento de posiciones bajistas ({val:+d} contratos)."
+        "sec_indices": "\n--- ÍNDICES BURSÁTILES ---"
     },
     "Deutsch": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Analyse Starten",
+        "btn_charts": "Barchart Charts Öffnen",
         "status_ready": "Bereit für die Analyse",
         "status_download": "Daten aus dem CFTC Legacy Report werden heruntergeladen...",
         "status_success": "Analyse erfolgreich abgeschlossen!",
         "error_prefix": "Fehler bei der Ausführung: ",
-        "report_header": "COT BERICHT (LEGACY) - UNIVERSELLE KREUZMATRIX",
-        "screening_header": "STRATEGISCHES SCREENING & WÄHRUNGSKREUZUNGEN",
+        "report_header": "COT BERICHT (LEGACY) - ANALYTISCHER BERICHT MIT NET SLOPE",
+        "screening_header": "STRATEGISCHES SCREENING & WÄHRUNGSKREUZUNGEN / COMMODITIES",
         "cat_valute": "WÄHRUNGEN",
         "cat_grains": "ROHSTOFFE - GRAINS",
         "cat_metalli": "METALLE",
@@ -107,27 +84,19 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIE",
         "cat_indici": "INDIZES",
         "sig_valute": "--- WÄHRUNGSKREUZUNGEN (Universelle Relative Stärke) ---",
-        "top_setup": "-> [WÄHRUNG TOP SETUP] LONG bei {strong}/{weak} prüfen: Maximale institutionelle Stärkedivergenz.",
-        "long_aud_usd": "-> [WÄHRUNG CROSS] Günstiges Setup für LONG bei AUD/USD.",
-        "short_aud_usd": "-> [WÄHRUNG CROSS] Günstiges Setup für SHORT bei AUD/USD.",
-        "long_eur_gbp": "-> [WÄHRUNG CROSS] LONG bei EUR/GBP beobachten.",
-        "short_eur_gbp": "-> [WÄHRUNG CROSS] SHORT bei EUR/GBP beobachten.",
-        "sec_commodities": "\n--- ROHSTOFFE & COMMODITIES ---",
-        "squeeze": "-> [ROHSTOFF / MÖGLicher SQUEEZE] {name}: Short-Eindeckung ({val:+d} Kontrakte).",
-        "momentum": "-> [ROHSTOFF / BULLISCHES MOMENTUM] {name}: Fonds-Kaufdruck ({val:+d} Kontrakte).",
-        "sec_indices": "\n--- AKTIENINDIZES ---",
-        "ind_continuation": "-> [INDEX / FORTSETZUNG] {name}: Bullische Akkumulation ({val:+d} Kontrakte).",
-        "ind_correction": "-> [INDEX / KORREKTURWARNUNG] {name}: Zunahme bärenstapfiger Positionen ({val:+d} Kontrakte)."
+        "sec_commodities": "\n--- ROHSTOFFE & KORRELATION ---",
+        "sec_indices": "\n--- AKTIENINDIZES ---"
     },
     "Français": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Lancer l'analyse",
+        "btn_charts": "Ouvrir les Graphiques Barchart",
         "status_ready": "Prêt pour l'analyse",
         "status_download": "Téléchargement des données du rapport Legacy CFTC...",
         "status_success": "Analyse terminée avec succès !",
         "error_prefix": "Erreur lors de l'exécution : ",
-        "report_header": "RAPPORT COT (LEGACY) - MATRICE DE CROISEMENT UNIVERSEL",
-        "screening_header": "SCREENING STRATÉGIQUE & CROISEMENTS DE DEVISES",
+        "report_header": "RAPPORT COT (LEGACY) - RAPPORT ANALYTIQUE AVEC NET SLOPE",
+        "screening_header": "SCREENING STRATÉGIQUE & CROISEMENTS DE DEVISES / COMMODITIES",
         "cat_valute": "DEVISES",
         "cat_grains": "MATIÈRES PREMIÈRES - GRAINS",
         "cat_metalli": "MÉTAUX",
@@ -135,18 +104,33 @@ TRANSLATIONS = {
         "cat_energies": "ÉNERGIES",
         "cat_indici": "INDICES",
         "sig_valute": "--- CROISEMENTS DE DEVISES (Force Relative Universelle) ---",
-        "top_setup": "-> [DEVISE TOP SETUP] Envisager LONG sur {strong}/{weak} : Divergence maximale de force institutionnelle.",
-        "long_aud_usd": "-> [DEVISE CROSS] Configuration favorable pour LONG sur AUD/USD.",
-        "short_aud_usd": "-> [DEVISE CROSS] Configuration favorable pour SHORT sur AUD/USD.",
-        "long_eur_gbp": "-> [DEVISE CROSS] Surveiller LONG sur EUR/GBP.",
-        "short_eur_gbp": "-> [DEVISE CROSS] Surveiller SHORT sur EUR/GBP.",
-        "sec_commodities": "\n--- MATIÈRES PREMIÈRES ---",
-        "squeeze": "-> [MATIÈRE PREMIÈRE / SQUEEZE POTENTIEL] {name} : Couverture de shorts ({val:+d} contrats).",
-        "momentum": "-> [MATIÈRE PREMIÈRE / MOMENTUM HAUSSIER] {name} : Pression acheteuse des fonds ({val:+d} contrats).",
-        "sec_indices": "\n--- INDICES BOURSIERS ---",
-        "ind_continuation": "-> [INDICE / CONTINUATION] {name} : Accumulation haussière ({val:+d} contrats).",
-        "ind_correction": "-> [INDICE / ALERTE CORRECTION] {name} : Croissance des positions baissières ({val:+d} contrats)."
+        "sec_commodities": "\n--- MATIÈRES PREMIÈRES & CORRÉLATION ---",
+        "sec_indices": "\n--- INDICES BOURSIERS ---"
     }
+}
+
+# Mappatura link Barchart per i mercati principali (Contratti Continui *0)
+BARCHART_LINKS = {
+    "EURO FX": "https://www.barchart.com/futures/quotes/6E*0",
+    "BRITISH POUND": "https://www.barchart.com/futures/quotes/6B*0",
+    "JAPANESE YEN": "https://www.barchart.com/futures/quotes/6J*0",
+    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/quotes/6A*0",
+    "NZ DOLLAR": "https://www.barchart.com/futures/quotes/6N*0",
+    "CANADIAN DOLLAR": "https://www.barchart.com/futures/quotes/6C*0",
+    "SWISS FRANC": "https://www.barchart.com/futures/quotes/6S*0",
+    "USD INDEX": "https://www.barchart.com/futures/quotes/DX*0",
+    "GOLD": "https://www.barchart.com/futures/quotes/GC*0",
+    "SILVER": "https://www.barchart.com/futures/quotes/SI*0",
+    "COPPER": "https://www.barchart.com/futures/quotes/HG*0",
+    "CRUDE OIL": "https://www.barchart.com/futures/quotes/CL*0",
+    "NATURAL GAS": "https://www.barchart.com/futures/quotes/NG*0",
+    "CORN": "https://www.barchart.com/futures/quotes/ZC*0",
+    "SOYBEANS": "https://www.barchart.com/futures/quotes/ZS*0",
+    "S&P 500": "https://www.barchart.com/futures/quotes/ES*0",
+    "NASDAQ-100": "https://www.barchart.com/futures/quotes/NQ*0",
+    "DOW JONES": "https://www.barchart.com/futures/quotes/YM*0",
+    "RUSSELL 2000": "https://www.barchart.com/futures/quotes/RTY*0",
+    "VIX": "https://www.barchart.com/futures/quotes/VX*0"
 }
 
 def main(page: ft.Page):
@@ -167,6 +151,7 @@ def main(page: ft.Page):
             t = TRANSLATIONS[current_lang]
             title_text.value = t["title"]
             analyze_btn.text = t["btn_ready"]
+            charts_btn.text = t["btn_charts"]
             status_text.value = t["status_ready"]
             page.update()
 
@@ -183,19 +168,23 @@ def main(page: ft.Page):
         status_text = ft.Text(t["status_ready"], size=13, color="green")
         progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
         
-        # Scroll verticale esteso con padding extra in basso per i tasti virtuali
+        # Risultati con scroll verticale e padding extra in basso per i tasti virtuali dello smartphone
         results_column = ft.Column(spacing=4)
         results_container = ft.Container(
             content=results_column,
             padding=ft.padding.only(bottom=100)
         )
 
-        # Scroll orizzontale per evitare il taglio della formattazione a spaziatura fissa
+        # Scroll orizzontale per preservare la formattazione a spaziatura fissa
         horizontal_scroll_view = ft.Row(
             [results_container],
             scroll=ft.ScrollMode.AUTO,
             alignment=ft.MainAxisAlignment.START
         )
+
+        def open_charts(e):
+            # Apre la pagina principale dei futures su Barchart o un hub di grafici
+            page.launch_url("https://www.barchart.com/futures")
 
         def run_analysis(e):
             status_text.value = t["status_download"]
@@ -272,12 +261,26 @@ def main(page: ft.Page):
                                     pct_growth_long = (change_long / prev_long * 100) if prev_long > 0 else 0
                                     pct_growth_short = (change_short / prev_short * 100) if prev_short > 0 else 0
                                     
-                                    strength_score = (pct_long - pct_short) + (pct_growth_long - pct_growth_short) / 10.0
+                                    score_long = pct_long + (pct_growth_long / 10.0)
+                                    score_short = pct_short + (pct_growth_short / 10.0)
+                                    net_slope = score_long - score_short
+                                    
+                                    if net_slope > 15:
+                                        bias = "STRONG LONG"
+                                    elif net_slope > 5:
+                                        bias = "MODERATE LONG"
+                                    elif net_slope < -15:
+                                        bias = "STRONG SHORT"
+                                    elif net_slope < -5:
+                                        bias = "MODERATE SHORT"
+                                    else:
+                                        bias = "NEUTRAL"
                                     
                                     line = (
                                         f"{market_name[:32]:<34} | "
-                                        f"Long: {pct_long:5.1f}% ({change_long:+d} ctr) | "
-                                        f"Short: {pct_short:5.1f}% ({change_short:+d} ctr)"
+                                        f"Long: {pct_long:5.1f}% ({change_long:+6d} ctr) | "
+                                        f"Short: {pct_short:5.1f}% ({change_short:+6d} ctr) | "
+                                        f"Net Slope: {net_slope:+6.1f} [{bias}]"
                                     )
                                     all_results.append(line)
                                     
@@ -288,7 +291,7 @@ def main(page: ft.Page):
                                         "pct_short": pct_short,
                                         "chg_long": change_long,
                                         "chg_short": change_short,
-                                        "strength_score": strength_score
+                                        "net_slope": net_slope
                                     }
                                     
                                     found = True
@@ -296,75 +299,88 @@ def main(page: ft.Page):
                                 except Exception:
                                     pass
 
-                # Motore di incrocio universale
+                # Motore di screening e strategia
                 signals = []
                 currencies = {
                     "EURO FX": "EUR", "BRITISH POUND": "GBP", "JAPANESE YEN": "JPY",
                     "AUSTRALIAN DOLLAR": "AUD", "NZ DOLLAR": "NZD", "CANADIAN DOLLAR": "CAD",
-                    "SWISS FRANC": "CHF", "U.S. DOLLAR INDEX": "USD"
+                    "SWISS FRANC": "CHF", "USD INDEX": "USD"
                 }
                 
                 cur_strength = {}
                 for cur_key, cur_code in currencies.items():
                     if cur_key in market_data:
-                        data = market_data[cur_key]
-                        cur_strength[cur_code] = data["strength_score"]
+                        cur_strength[cur_code] = market_data[cur_key]["net_slope"]
 
                 sorted_curs = sorted(cur_strength.items(), key=lambda x: x[1], reverse=True)
                 
                 signals.append(t["sig_valute"])
                 if len(sorted_curs) >= 2:
-                    strongest_cur = sorted_curs[0]
-                    weakest_cur = sorted_curs[-1]
-                    signals.append(t["top_setup"].format(strong=strongest_cur[0], weak=weakest_cur[0]))
+                    signals.append(f"-> [TOP SETUP ABS] {sorted_curs[0][0]}/{sorted_curs[-1][0]} | Max div ({sorted_curs[0][0]}: {sorted_curs[0][1]:+.1f} vs {sorted_curs[-1][0]}: {sorted_curs[-1][1]:+.1f})")
 
-                if "AUD" in cur_strength and "USD" in cur_strength:
-                    if cur_strength["AUD"] > cur_strength["USD"]:
-                        signals.append(t["long_aud_usd"])
-                    else:
-                        signals.append(t["short_aud_usd"])
-                        
-                if "EUR" in cur_strength and "GBP" in cur_strength:
-                    if cur_strength["EUR"] > cur_strength["GBP"]:
-                        signals.append(t["long_eur_gbp"])
-                    else:
-                        signals.append(t["short_eur_gbp"])
+                major_pairs = [
+                    ("EUR", "USD"), ("GBP", "USD"), ("AUD", "USD"), ("NZD", "USD"),
+                    ("USD", "JPY"), ("USD", "CAD"), ("USD", "CHF"),
+                    ("EUR", "GBP"), ("EUR", "JPY"), ("GBP", "JPY"), ("AUD", "JPY")
+                ]
+                
+                signals.append("\n--- ANALISI DINAMICA CROSS PRINCIPALI ---")
+                for base, quote in major_pairs:
+                    if base in cur_strength and quote in cur_strength:
+                        s_base, s_quote = cur_strength[base], cur_strength[quote]
+                        diff = s_base - s_quote
+                        if diff > 10:
+                            signals.append(f"-> [LONG {base}/{quote}] Favorevole a {base} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})")
+                        elif diff < -10:
+                            signals.append(f"-> [SHORT {base}/{quote}] Favorevole a {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})")
 
                 signals.append(t["sec_commodities"])
                 commodities_to_check = ["GOLD", "SILVER", "CRUDE OIL", "COPPER", "LUMBER", "CORN", "SOYBEANS"]
+                usd_slope = cur_strength.get("USD", 0)
+                
                 for comm in commodities_to_check:
                     comm_data = market_data.get(comm)
                     if comm_data:
                         c_name = comm_data['name'].split('-')[0].strip()
+                        slope = comm_data["net_slope"]
+                        
                         if comm_data["pct_short"] > 60 and comm_data["chg_short"] < 0:
-                            signals.append(t["squeeze"].format(name=c_name, val=comm_data['chg_short']))
-                        elif comm_data["pct_long"] > 60 and comm_data["chg_long"] > 0:
-                            signals.append(t["momentum"].format(name=c_name, val=comm_data['chg_long']))
-
-                signals.append(t["sec_indices"])
-                indices_to_check = ["S&P 500", "NASDAQ-100", "DOW JONES", "RUSSELL 2000"]
-                for ind in indices_to_check:
-                    ind_data = market_data.get(ind)
-                    if ind_data:
-                        i_name = ind_data['name'].split('-')[0].strip()
-                        if ind_data["pct_long"] > 60 and ind_data["chg_long"] > 0:
-                            signals.append(t["ind_continuation"].format(name=i_name, val=ind_data['chg_long']))
-                        elif ind_data["pct_short"] > 50 and ind_data["chg_short"] > 0:
-                            signals.append(t["ind_correction"].format(name=i_name, val=ind_data['chg_short']))
+                            signals.append(f"-> [COMMODITY / SQUEEZE] {c_name}: Short in chiusura (Slope: {slope:+.1f}).")
+                        elif slope > 15 and usd_slope < 0:
+                            signals.append(f"-> [COMMODITY / BULLISH] {c_name}: Forte long con USD debole (Slope: {slope:+.1f}).")
+                        elif slope < -15 and usd_slope > 0:
+                            signals.append(f"-> [COMMODITY / BEARISH] {c_name}: Forte short con USD forte (Slope: {slope:+.1f}).")
 
                 # Popolamento UI
                 results_column.controls.append(ft.Text(t["report_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
-                results_column.controls.append(ft.Text("=" * 60, color="white24", size=10))
+                results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
                 for item in all_results:
                     if item.startswith("\n---"):
                         results_column.controls.append(ft.Text(item, weight=ft.FontWeight.BOLD, color="cyan", size=12))
                     else:
-                        results_column.controls.append(ft.Text(item, font_family="monospace", size=11, color="white"))
+                        # Rendiamo ogni riga di mercato cliccabile per aprire il grafico Barchart corrispondente se disponibile
+                        market_key = None
+                        for key in BARCHART_LINKS.keys():
+                            if key in item.upper():
+                                market_key = key
+                                break
+                        
+                        if market_key:
+                            url_chart = BARCHART_LINKS[market_key]
+                            results_column.controls.append(
+                                ft.TextButton(
+                                    content=ft.Text(item, font_family="monospace", size=11, color="white"),
+                                    on_click=lambda e, u=url_chart: page.launch_url(u),
+                                    style=ft.ButtonStyle(padding=0)
+                                )
+                            )
+                        else:
+                            results_column.controls.append(ft.Text(item, font_family="monospace", size=11, color="white"))
 
-                results_column.controls.append(ft.Text("\n" + "=" * 60, color="white24", size=10))
+                results_column.controls.append(ft.Text("\n" + "=" * 70, color="white24", size=10))
                 results_column.controls.append(ft.Text(t["screening_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
-                results_column.controls.append(ft.Text("=" * 60, color="white24", size=10))
+                results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
                 for sig in signals:
                     if sig.startswith("\n---") or sig.startswith("---"):
@@ -386,13 +402,21 @@ def main(page: ft.Page):
             color="white"
         )
 
+        charts_btn = ft.ElevatedButton(
+            t["btn_charts"],
+            on_click=open_charts,
+            bgcolor="green",
+            color="white",
+            icon=ft.icons.SHOW_CHART
+        )
+
         page.add(
             title_text,
             lang_dropdown,
             ft.Divider(height=15, color="white24"),
             status_text,
             ft.Container(height=5),
-            ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.START, spacing=15),
+            ft.Row([analyze_btn, charts_btn, progress_ring], alignment=ft.MainAxisAlignment.START, spacing=10),
             ft.Divider(height=15, color="white24"),
             horizontal_scroll_view
         )
