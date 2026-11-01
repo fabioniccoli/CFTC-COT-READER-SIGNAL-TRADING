@@ -109,28 +109,61 @@ TRANSLATIONS = {
     }
 }
 
-# Mappatura link Barchart mirati alle pagine Commitment of Traders (COT)
+# Mappatura completa di TUTTI i mercati con la struttura esatta dei link Barchart richiesti
 BARCHART_LINKS = {
-    "EURO FX": "https://www.barchart.com/futures/quotes/6E*0/commitment-of-traders",
-    "BRITISH POUND": "https://www.barchart.com/futures/quotes/6B*0/commitment-of-traders",
-    "JAPANESE YEN": "https://www.barchart.com/futures/quotes/6J*0/commitment-of-traders",
-    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/quotes/6A*0/commitment-of-traders",
-    "NZ DOLLAR": "https://www.barchart.com/futures/quotes/6N*0/commitment-of-traders",
-    "CANADIAN DOLLAR": "https://www.barchart.com/futures/quotes/6C*0/commitment-of-traders",
-    "SWISS FRANC": "https://www.barchart.com/futures/quotes/6S*0/commitment-of-traders",
-    "USD INDEX": "https://www.barchart.com/futures/quotes/DX*0/commitment-of-traders",
-    "GOLD": "https://www.barchart.com/futures/quotes/GC*0/commitment-of-traders",
-    "SILVER": "https://www.barchart.com/futures/quotes/SI*0/commitment-of-traders",
-    "COPPER": "https://www.barchart.com/futures/quotes/HG*0/commitment-of-traders",
-    "CRUDE OIL": "https://www.barchart.com/futures/quotes/CL*0/commitment-of-traders",
-    "NATURAL GAS": "https://www.barchart.com/futures/quotes/NG*0/commitment-of-traders",
-    "CORN": "https://www.barchart.com/futures/quotes/ZC*0/commitment-of-traders",
-    "SOYBEANS": "https://www.barchart.com/futures/quotes/ZS*0/commitment-of-traders",
-    "S&P 500": "https://www.barchart.com/futures/quotes/ES*0/commitment-of-traders",
-    "NASDAQ-100": "https://www.barchart.com/futures/quotes/NQ*0/commitment-of-traders",
-    "DOW JONES": "https://www.barchart.com/futures/quotes/YM*0/commitment-of-traders",
-    "RUSSELL 2000": "https://www.barchart.com/futures/quotes/RTY*0/commitment-of-traders",
-    "VIX": "https://www.barchart.com/futures/quotes/VX*0/commitment-of-traders"
+    # Valute
+    "SWISS FRANC": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6S*0",
+    "USD INDEX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/DX*0",
+    "MEXICAN PESO": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6M*0",
+    "NZ DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6N*0",
+    "CANADIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6C*0",
+    "BRAZILIAN REAL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6L*0",
+    "SOUTH AFRICAN RAND": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6Z*0",
+    "BRITISH POUND": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6B*0",
+    "JAPANESE YEN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6J*0",
+    "EURO FX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6E*0",
+    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6A*0",
+    
+    # Grains
+    "CORN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZC*0",
+    "SOYBEANS": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZS*0",
+    "SOYBEAN OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZL*0",
+    "SOYBEAN MEAL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZM*0",
+    "WHEAT-SRW": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZW*0",
+    "WHEAT-HRW": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/KE*0",
+    "WHEAT-SPRING": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/MWE*0",
+    "ROUGH RICE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZR*0",
+    "CANOLA": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RS*0",
+    
+    # Metalli
+    "GOLD": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/GC*0",
+    "SILVER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/SI*0",
+    "COPPER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HG*0",
+    "PALLADIUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/PA*0",
+    "PLATINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/PL*0",
+    "ALUMINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ALI*0",
+    
+    # Softs
+    "COCOA": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CC*0",
+    "COTTON": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CT*0",
+    "COFFEE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/KC*0",
+    "SUGAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/SB*0",
+    "ORANGE JUICE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/OJ*0",
+    "LUMBER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/LBS*0",
+    
+    # Energies
+    "CRUDE OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CL*0",
+    "GASOLINE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RB*0",
+    "HEATING OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
+    "ULSD": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
+    "NATURAL GAS": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/NG*0",
+    
+    # Indici
+    "S&P 500": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ES*0",
+    "NASDAQ-100": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/NQ*0",
+    "DOW JONES": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/YM*0",
+    "RUSSELL 2000": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RTY*0",
+    "VIX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/VX*0"
 }
 
 def main(page: ft.Page):
@@ -168,7 +201,7 @@ def main(page: ft.Page):
         status_text = ft.Text(t["status_ready"], size=13, color="green")
         progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
         
-        results_column = ft.Column(spacing=2) # Spaziatura ridotta e uniforme per evitare spazi anomali
+        results_column = ft.Column(spacing=2) 
         results_container = ft.Container(
             content=results_column,
             padding=ft.padding.only(bottom=100)
@@ -278,7 +311,7 @@ def main(page: ft.Page):
                                         f"Short: {pct_short:5.1f}% ({change_short:+6d} ctr) | "
                                         f"Net Slope: {net_slope:+6.1f} [{bias}]"
                                     )
-                                    all_results.append((line, "MARKET"))
+                                    all_results.append((line, "MARKET", kw.upper()))
                                     
                                     clean_key = kw.upper()
                                     market_data[clean_key] = {
@@ -344,31 +377,27 @@ def main(page: ft.Page):
                         elif slope < -15 and usd_slope > 0:
                             signals.append((f"-> [COMMODITY / BEARISH] {c_name}: Forte short con USD forte (Slope: {slope:+.1f}).", "TEXT"))
 
-                # Inserimento ordinato nella UI senza salti anomali
+                # Inserimento ordinato e uniforme nella UI
                 results_column.controls.append(ft.Text(t["report_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
                 results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
-                for item, itype in all_results:
-                    if itype == "HEADER":
-                        results_column.controls.append(ft.Text(f"\n--- {item} ---", weight=ft.FontWeight.BOLD, color="cyan", size=12))
+                for entry in all_results:
+                    if entry[1] == "HEADER":
+                        results_column.controls.append(ft.Text(f"\n--- {entry[0]} ---", weight=ft.FontWeight.BOLD, color="cyan", size=12))
                     else:
-                        market_key = None
-                        for key in BARCHART_LINKS.keys():
-                            if key in item.upper():
-                                market_key = key
-                                break
+                        item_text = entry[0]
+                        kw_matched = entry[2]
                         
-                        if market_key:
-                            url_chart = BARCHART_LINKS[market_key]
-                            results_column.controls.append(
-                                ft.TextButton(
-                                    content=ft.Text(item, font_family="monospace", size=11, color="white"),
-                                    on_click=lambda e, u=url_chart: page.launch_url(u),
-                                    style=ft.ButtonStyle(padding=0)
-                                )
+                        # Ora TUTTI i mercati hanno il link puntato correttamente alla sezione COT di Barchart
+                        url_chart = BARCHART_LINKS.get(kw_matched, "https://www.barchart.com/futures/commitment-of-traders")
+                        
+                        results_column.controls.append(
+                            ft.TextButton(
+                                content=ft.Text(item_text, font_family="monospace", size=11, color="white"),
+                                on_click=lambda e, u=url_chart: page.launch_url(u),
+                                style=ft.ButtonStyle(padding=0)
                             )
-                        else:
-                            results_column.controls.append(ft.Text(item, font_family="monospace", size=11, color="white"))
+                        )
 
                 results_column.controls.append(ft.Text("\n" + "=" * 70, color="white24", size=10))
                 results_column.controls.append(ft.Text(t["screening_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
