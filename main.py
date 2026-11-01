@@ -4,7 +4,7 @@ import csv
 import io
 
 # ==========================================
-# DIZIONARIO MULTILINGUA
+# DIZIONARIO MULTILINGUA COMPLETO
 # ==========================================
 TRANSLATIONS = {
     "Italiano": {
@@ -15,7 +15,7 @@ TRANSLATIONS = {
         "status_download": "Scaricamento dei dati dal report Legacy CFTC...",
         "status_success": "Analisi completata con successo!",
         "error_prefix": "Errore durante l'esecuzione: ",
-        "report_header": "REPORT COT (LEGACY) - REPORT ANALITICO CON NET SLOPE",
+        "report_header": "REPORT COT (LEGACY) - REPORT ANALITICO",
         "screening_header": "SCREENING STRATEGICO & INCROCI MULTI-VALUTA / COMMODITIES",
         "cat_valute": "VALUTE",
         "cat_grains": "MATERIE PRIME - GRAINS",
@@ -24,6 +24,7 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIES",
         "cat_indici": "INDICI",
         "sig_valute": "--- INCROCI VALUTARI (Forza Relativa Universale) ---",
+        "sec_cross": "--- ANALISI DINAMICA CROSS PRINCIPALI ---",
         "sec_commodities": "--- MATERIE PRIME & CORRELAZIONE COMMODITIES ---",
         "sec_indices": "--- INDICI AZIONARI ---"
     },
@@ -35,7 +36,7 @@ TRANSLATIONS = {
         "status_download": "Downloading data from CFTC Legacy report...",
         "status_success": "Analysis completed successfully!",
         "error_prefix": "Execution error: ",
-        "report_header": "COT REPORT (LEGACY) - ANALYTICAL REPORT WITH NET SLOPE",
+        "report_header": "COT REPORT (LEGACY) - ANALYTICAL REPORT",
         "screening_header": "STRATEGIC SCREENING & MULTI-CURRENCY / COMMODITIES CROSSES",
         "cat_valute": "CURRENCIES",
         "cat_grains": "COMMODITIES - GRAINS",
@@ -44,6 +45,7 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIES",
         "cat_indici": "INDICES",
         "sig_valute": "--- CURRENCY CROSSES (Universal Relative Strength) ---",
+        "sec_cross": "--- DYNAMIC ANALYSIS OF MAJOR CROSSES ---",
         "sec_commodities": "--- COMMODITIES & CORRELATION ---",
         "sec_indices": "--- STOCK INDICES ---"
     },
@@ -55,7 +57,7 @@ TRANSLATIONS = {
         "status_download": "Descargando datos del informe Legacy CFTC...",
         "status_success": "¡Análisis completado con éxito!",
         "error_prefix": "Error durante la ejecución: ",
-        "report_header": "INFORME COT (LEGACY) - INFORME ANALÍTICO CON NET SLOPE",
+        "report_header": "INFORME COT (LEGACY) - INFORME ANALÍTICO",
         "screening_header": "SELECCIÓN ESTRATÉGICA Y CRUCES DE DIVISAS / COMMODITIES",
         "cat_valute": "MONEDAS",
         "cat_grains": "MATERIAS PRIMAS - GRAINS",
@@ -64,6 +66,7 @@ TRANSLATIONS = {
         "cat_energies": "ENERGÍAS",
         "cat_indici": "INDICES",
         "sig_valute": "--- CRUCES DE MONEDAS (Fuerza Relativa Universal) ---",
+        "sec_cross": "--- ANÁLISIS DINÁMICO DE CRUCES PRINCIPALES ---",
         "sec_commodities": "--- MATERIAS PRIMAS ---",
         "sec_indices": "--- ÍNDICES BURSÁTILES ---"
     },
@@ -75,7 +78,7 @@ TRANSLATIONS = {
         "status_download": "Daten aus dem CFTC Legacy Report werden heruntergeladen...",
         "status_success": "Analyse erfolgreich abgeschlossen!",
         "error_prefix": "Fehler bei der Ausführung: ",
-        "report_header": "COT BERICHT (LEGACY) - ANALYTISCHER BERICHT MIT NET SLOPE",
+        "report_header": "COT BERICHT (LEGACY) - ANALYTISCHER BERICHT",
         "screening_header": "STRATEGISCHES SCREENING & WÄHRUNGSKREUZUNGEN / COMMODITIES",
         "cat_valute": "WÄHRUNGEN",
         "cat_grains": "ROHSTOFFE - GRAINS",
@@ -84,6 +87,7 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIE",
         "cat_indici": "INDIZES",
         "sig_valute": "--- WÄHRUNGSKREUZUNGEN (Universelle Relative Stärke) ---",
+        "sec_cross": "--- DYNAMISCHE ANALYSE DER HAUPTKREUZUNGEN ---",
         "sec_commodities": "--- ROHSTOFFE & KORRELATION ---",
         "sec_indices": "--- AKTIENINDIZES ---"
     },
@@ -95,7 +99,7 @@ TRANSLATIONS = {
         "status_download": "Téléchargement des données du rapport Legacy CFTC...",
         "status_success": "Analyse terminée avec succès !",
         "error_prefix": "Erreur lors de l'exécution : ",
-        "report_header": "RAPPORT COT (LEGACY) - RAPPORT ANALYTIQUE AVEC NET SLOPE",
+        "report_header": "RAPPORT COT (LEGACY) - RAPPORT ANALYTIQUE",
         "screening_header": "SCREENING STRATÉGIQUE & CROISEMENTS DE DEVISES / COMMODITIES",
         "cat_valute": "DEVISES",
         "cat_grains": "MATIÈRES PREMIÈRES - GRAINS",
@@ -104,14 +108,14 @@ TRANSLATIONS = {
         "cat_energies": "ÉNERGIES",
         "cat_indici": "INDICES",
         "sig_valute": "--- CROISEMENTS DE DEVISES (Force Relative Universelle) ---",
+        "sec_cross": "--- ANALYSE DYNAMIQUE DES CROISEMENTS MAJEURS ---",
         "sec_commodities": "--- MATIÈRES PREMIÈRES & CORRÉLATION ---",
         "sec_indices": "--- INDICES BOURSIERS ---"
     }
 }
 
-# Mappatura completa di TUTTI i mercati con la struttura esatta dei link Barchart richiesti
+# Mappatura completa Barchart
 BARCHART_LINKS = {
-    # Valute
     "SWISS FRANC": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6S*0",
     "USD INDEX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/DX*0",
     "MEXICAN PESO": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6M*0",
@@ -123,8 +127,6 @@ BARCHART_LINKS = {
     "JAPANESE YEN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6J*0",
     "EURO FX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6E*0",
     "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6A*0",
-    
-    # Grains
     "CORN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZC*0",
     "SOYBEANS": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZS*0",
     "SOYBEAN OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZL*0",
@@ -134,31 +136,23 @@ BARCHART_LINKS = {
     "WHEAT-SPRING": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/MWE*0",
     "ROUGH RICE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZR*0",
     "CANOLA": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RS*0",
-    
-    # Metalli
     "GOLD": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/GC*0",
     "SILVER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/SI*0",
     "COPPER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HG*0",
     "PALLADIUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/PA*0",
     "PLATINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/PL*0",
     "ALUMINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ALI*0",
-    
-    # Softs
     "COCOA": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CC*0",
     "COTTON": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CT*0",
     "COFFEE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/KC*0",
     "SUGAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/SB*0",
     "ORANGE JUICE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/OJ*0",
     "LUMBER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/LBS*0",
-    
-    # Energies
     "CRUDE OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CL*0",
     "GASOLINE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RB*0",
     "HEATING OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
     "ULSD": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
     "NATURAL GAS": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/NG*0",
-    
-    # Indici
     "S&P 500": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ES*0",
     "NASDAQ-100": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/NQ*0",
     "DOW JONES": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/YM*0",
@@ -350,7 +344,7 @@ def main(page: ft.Page):
                     ("EUR", "GBP"), ("EUR", "JPY"), ("GBP", "JPY"), ("AUD", "JPY")
                 ]
                 
-                signals.append(("--- ANALISI DINAMICA CROSS PRINCIPALI ---", "SUBHEADER"))
+                signals.append((t["sec_cross"], "SUBHEADER"))
                 for base, quote in major_pairs:
                     if base in cur_strength and quote in cur_strength:
                         s_base, s_quote = cur_strength[base], cur_strength[quote]
@@ -377,7 +371,7 @@ def main(page: ft.Page):
                         elif slope < -15 and usd_slope > 0:
                             signals.append((f"-> [COMMODITY / BEARISH] {c_name}: Forte short con USD forte (Slope: {slope:+.1f}).", "TEXT"))
 
-                # Inserimento ordinato e uniforme nella UI
+                # Inserimento ordinato e uniforme nella UI con intestazioni multilingua
                 results_column.controls.append(ft.Text(t["report_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
                 results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
@@ -388,7 +382,6 @@ def main(page: ft.Page):
                         item_text = entry[0]
                         kw_matched = entry[2]
                         
-                        # Ora TUTTI i mercati hanno il link puntato correttamente alla sezione COT di Barchart
                         url_chart = BARCHART_LINKS.get(kw_matched, "https://www.barchart.com/futures/commitment-of-traders")
                         
                         results_column.controls.append(
