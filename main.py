@@ -1,6 +1,6 @@
 import flet as ft
-import pandas as pd
-import requests
+import urllib.request
+import csv
 import io
 
 # ==========================================
@@ -156,14 +156,11 @@ def main(page: ft.Page):
         page.scroll = ft.ScrollMode.AUTO
         page.padding = 20
 
-        # Stato della lingua corrente
         current_lang = "Italiano"
         t = TRANSLATIONS[current_lang]
 
-        # Elementi UI di base
         title_text = ft.Text(t["title"], size=22, weight=ft.FontWeight.BOLD, color="white")
         
-        # Selettore Lingua
         def change_language(e):
             nonlocal current_lang, t
             current_lang = lang_dropdown.value
@@ -186,14 +183,14 @@ def main(page: ft.Page):
         status_text = ft.Text(t["status_ready"], size=13, color="green")
         progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
         
-        # Contenitore dei risultati con scroll verticale e un ampio padding inferiore (per evitare i tasti di Android)
+        # Scroll verticale esteso con padding extra in basso per i tasti virtuali
         results_column = ft.Column(spacing=4)
         results_container = ft.Container(
             content=results_column,
-            padding=ft.padding.only(bottom=80) # Spazio extra per i tasti virtuali dello smartphone
+            padding=ft.padding.only(bottom=100)
         )
 
-        # Contenitore a scorrimento orizzontale per impedire il taglio della formattazione a spaziatura fissa
+        # Scroll orizzontale per evitare il taglio della formattazione a spaziatura fissa
         horizontal_scroll_view = ft.Row(
             [results_container],
             scroll=ft.ScrollMode.AUTO,
@@ -208,12 +205,17 @@ def main(page: ft.Page):
 
             try:
                 url_current = "https://www.cftc.gov/dea/newcot/deafut.txt"
-                headers = {'User-Agent': 'Mozilla/5.0'}
+                req = urllib.request.Request(
+                    url_current, 
+                    headers={'User-Agent': 'Mozilla/5.0'}
+                )
                 
-                response = requests.get(url_current, headers=headers, timeout=15)
-                response.raise_for_status()
-                
-                df = pd.read_csv(io.StringIO(response.text), header=None, low_memory=False)
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    content = response.read().decode('utf-8', errors='ignore')
+
+                f = io.StringIO(content)
+                reader = csv.reader(f)
+                rows = list(reader)
                 
                 categories = {
                     t["cat_valute"]: [
@@ -247,17 +249,19 @@ def main(page: ft.Page):
                     
                     for kw in keywords:
                         found = False
-                        for index, row in df.iterrows():
+                        for row in rows:
+                            if not row or len(row) < 40:
+                                continue
                             market_name = str(row[0]).strip()
                             
                             if kw.upper() in market_name.upper():
                                 try:
-                                    open_interest = float(row[7]) if pd.notna(row[7]) and float(row[7]) > 0 else 1
-                                    non_comm_long = float(row[8]) if pd.notna(row[8]) else 0
-                                    non_comm_short = float(row[9]) if pd.notna(row[9]) else 0
+                                    open_interest = float(row[7]) if row[7].strip() and float(row[7]) > 0 else 1
+                                    non_comm_long = float(row[8]) if row[8].strip() else 0
+                                    non_comm_short = float(row[9]) if row[9].strip() else 0
                                     
-                                    change_long = int(float(row[38])) if pd.notna(row[38]) else 0
-                                    change_short = int(float(row[39])) if pd.notna(row[39]) else 0
+                                    change_long = int(float(row[38])) if row[38].strip() else 0
+                                    change_short = int(float(row[39])) if row[39].strip() else 0
                                     
                                     pct_long = (non_comm_long / open_interest) * 100
                                     pct_short = (non_comm_short / open_interest) * 100
@@ -382,7 +386,6 @@ def main(page: ft.Page):
             color="white"
         )
 
-        # Layout Principale
         page.add(
             title_text,
             lang_dropdown,
@@ -391,7 +394,7 @@ def main(page: ft.Page):
             ft.Container(height=5),
             ft.Row([analyze_btn, progress_ring], alignment=ft.MainAxisAlignment.START, spacing=15),
             ft.Divider(height=15, color="white24"),
-            horizontal_scroll_view  # Supporta lo scroll orizzontale e verticale integrato
+            horizontal_scroll_view
         )
 
     except Exception as initialization_error:
