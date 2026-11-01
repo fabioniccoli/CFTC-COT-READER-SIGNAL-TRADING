@@ -179,7 +179,7 @@ BARCHART_LINKS = {
     "LUMBER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/LB*0",
     "CRUDE OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CL*0",
     "GASOLINE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RB*0",
-    "HEATING OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
+    "NY HARBOR ULSD": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
     "NATURAL GAS": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/NG*0",
     "ETHANOL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/FL*0",
     "S&P 500": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ES*0",
@@ -276,7 +276,7 @@ def main(page: ft.Page):
                         "COCOA", "COTTON", "COFFEE", "SUGAR", "ORANGE JUICE", "LUMBER"
                     ],
                     t["cat_energies"]: [
-                        "CRUDE OIL", "GASOLINE", "HEATING OIL", "NATURAL GAS", "ETHANOL"
+                        "CRUDE OIL", "GASOLINE", "NY HARBOR ULSD", "NATURAL GAS", "ETHANOL"
                     ],
                     t["cat_indici"]: [
                         "S&P 500", "NASDAQ-100", "DOW JONES", "RUSSELL 2000", "VIX"
