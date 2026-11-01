@@ -10,7 +10,7 @@ TRANSLATIONS = {
     "Italiano": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Avvia Analisi",
-        "btn_charts": "Apri Grafici Barchart",
+        "btn_charts": "Apri Barchart COT",
         "status_ready": "Pronto per l'analisi",
         "status_download": "Scaricamento dei dati dal report Legacy CFTC...",
         "status_success": "Analisi completata con successo!",
@@ -24,13 +24,13 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIES",
         "cat_indici": "INDICI",
         "sig_valute": "--- INCROCI VALUTARI (Forza Relativa Universale) ---",
-        "sec_commodities": "\n--- MATERIE PRIME & CORRELAZIONE COMMODITIES ---",
-        "sec_indices": "\n--- INDICI AZIONARI ---"
+        "sec_commodities": "--- MATERIE PRIME & CORRELAZIONE COMMODITIES ---",
+        "sec_indices": "--- INDICI AZIONARI ---"
     },
     "English": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Start Analysis",
-        "btn_charts": "Open Barchart Charts",
+        "btn_charts": "Open Barchart COT",
         "status_ready": "Ready for analysis",
         "status_download": "Downloading data from CFTC Legacy report...",
         "status_success": "Analysis completed successfully!",
@@ -44,13 +44,13 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIES",
         "cat_indici": "INDICES",
         "sig_valute": "--- CURRENCY CROSSES (Universal Relative Strength) ---",
-        "sec_commodities": "\n--- COMMODITIES & CORRELATION ---",
-        "sec_indices": "\n--- STOCK INDICES ---"
+        "sec_commodities": "--- COMMODITIES & CORRELATION ---",
+        "sec_indices": "--- STOCK INDICES ---"
     },
     "Español": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Iniciar Análisis",
-        "btn_charts": "Abrir Gráficos Barchart",
+        "btn_charts": "Abrir Barchart COT",
         "status_ready": "Listo para el análisis",
         "status_download": "Descargando datos del informe Legacy CFTC...",
         "status_success": "¡Análisis completado con éxito!",
@@ -64,13 +64,13 @@ TRANSLATIONS = {
         "cat_energies": "ENERGÍAS",
         "cat_indici": "INDICES",
         "sig_valute": "--- CRUCES DE MONEDAS (Fuerza Relativa Universal) ---",
-        "sec_commodities": "\n--- MATERIAS PRIMAS ---",
-        "sec_indices": "\n--- ÍNDICES BURSÁTILES ---"
+        "sec_commodities": "--- MATERIAS PRIMAS ---",
+        "sec_indices": "--- ÍNDICES BURSÁTILES ---"
     },
     "Deutsch": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Analyse Starten",
-        "btn_charts": "Barchart Charts Öffnen",
+        "btn_charts": "Barchart COT Öffnen",
         "status_ready": "Bereit für die Analyse",
         "status_download": "Daten aus dem CFTC Legacy Report werden heruntergeladen...",
         "status_success": "Analyse erfolgreich abgeschlossen!",
@@ -84,13 +84,13 @@ TRANSLATIONS = {
         "cat_energies": "ENERGIE",
         "cat_indici": "INDIZES",
         "sig_valute": "--- WÄHRUNGSKREUZUNGEN (Universelle Relative Stärke) ---",
-        "sec_commodities": "\n--- ROHSTOFFE & KORRELATION ---",
-        "sec_indices": "\n--- AKTIENINDIZES ---"
+        "sec_commodities": "--- ROHSTOFFE & KORRELATION ---",
+        "sec_indices": "--- AKTIENINDIZES ---"
     },
     "Français": {
         "title": "CFTC COT Analyzer",
         "btn_ready": "Lancer l'analyse",
-        "btn_charts": "Ouvrir les Graphiques Barchart",
+        "btn_charts": "Ouvrir Barchart COT",
         "status_ready": "Prêt pour l'analyse",
         "status_download": "Téléchargement des données du rapport Legacy CFTC...",
         "status_success": "Analyse terminée avec succès !",
@@ -104,32 +104,33 @@ TRANSLATIONS = {
         "cat_energies": "ÉNERGIES",
         "cat_indici": "INDICES",
         "sig_valute": "--- CROISEMENTS DE DEVISES (Force Relative Universelle) ---",
-        "sec_commodities": "\n--- MATIÈRES PREMIÈRES & CORRÉLATION ---",
-        "sec_indices": "\n--- INDICES BOURSIERS ---"
+        "sec_commodities": "--- MATIÈRES PREMIÈRES & CORRÉLATION ---",
+        "sec_indices": "--- INDICES BOURSIERS ---"
     }
 }
 
+# Mappatura link Barchart mirati alle pagine Commitment of Traders (COT)
 BARCHART_LINKS = {
-    "EURO FX": "https://www.barchart.com/futures/quotes/6E*0",
-    "BRITISH POUND": "https://www.barchart.com/futures/quotes/6B*0",
-    "JAPANESE YEN": "https://www.barchart.com/futures/quotes/6J*0",
-    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/quotes/6A*0",
-    "NZ DOLLAR": "https://www.barchart.com/futures/quotes/6N*0",
-    "CANADIAN DOLLAR": "https://www.barchart.com/futures/quotes/6C*0",
-    "SWISS FRANC": "https://www.barchart.com/futures/quotes/6S*0",
-    "USD INDEX": "https://www.barchart.com/futures/quotes/DX*0",
-    "GOLD": "https://www.barchart.com/futures/quotes/GC*0",
-    "SILVER": "https://www.barchart.com/futures/quotes/SI*0",
-    "COPPER": "https://www.barchart.com/futures/quotes/HG*0",
-    "CRUDE OIL": "https://www.barchart.com/futures/quotes/CL*0",
-    "NATURAL GAS": "https://www.barchart.com/futures/quotes/NG*0",
-    "CORN": "https://www.barchart.com/futures/quotes/ZC*0",
-    "SOYBEANS": "https://www.barchart.com/futures/quotes/ZS*0",
-    "S&P 500": "https://www.barchart.com/futures/quotes/ES*0",
-    "NASDAQ-100": "https://www.barchart.com/futures/quotes/NQ*0",
-    "DOW JONES": "https://www.barchart.com/futures/quotes/YM*0",
-    "RUSSELL 2000": "https://www.barchart.com/futures/quotes/RTY*0",
-    "VIX": "https://www.barchart.com/futures/quotes/VX*0"
+    "EURO FX": "https://www.barchart.com/futures/quotes/6E*0/commitment-of-traders",
+    "BRITISH POUND": "https://www.barchart.com/futures/quotes/6B*0/commitment-of-traders",
+    "JAPANESE YEN": "https://www.barchart.com/futures/quotes/6J*0/commitment-of-traders",
+    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/quotes/6A*0/commitment-of-traders",
+    "NZ DOLLAR": "https://www.barchart.com/futures/quotes/6N*0/commitment-of-traders",
+    "CANADIAN DOLLAR": "https://www.barchart.com/futures/quotes/6C*0/commitment-of-traders",
+    "SWISS FRANC": "https://www.barchart.com/futures/quotes/6S*0/commitment-of-traders",
+    "USD INDEX": "https://www.barchart.com/futures/quotes/DX*0/commitment-of-traders",
+    "GOLD": "https://www.barchart.com/futures/quotes/GC*0/commitment-of-traders",
+    "SILVER": "https://www.barchart.com/futures/quotes/SI*0/commitment-of-traders",
+    "COPPER": "https://www.barchart.com/futures/quotes/HG*0/commitment-of-traders",
+    "CRUDE OIL": "https://www.barchart.com/futures/quotes/CL*0/commitment-of-traders",
+    "NATURAL GAS": "https://www.barchart.com/futures/quotes/NG*0/commitment-of-traders",
+    "CORN": "https://www.barchart.com/futures/quotes/ZC*0/commitment-of-traders",
+    "SOYBEANS": "https://www.barchart.com/futures/quotes/ZS*0/commitment-of-traders",
+    "S&P 500": "https://www.barchart.com/futures/quotes/ES*0/commitment-of-traders",
+    "NASDAQ-100": "https://www.barchart.com/futures/quotes/NQ*0/commitment-of-traders",
+    "DOW JONES": "https://www.barchart.com/futures/quotes/YM*0/commitment-of-traders",
+    "RUSSELL 2000": "https://www.barchart.com/futures/quotes/RTY*0/commitment-of-traders",
+    "VIX": "https://www.barchart.com/futures/quotes/VX*0/commitment-of-traders"
 }
 
 def main(page: ft.Page):
@@ -167,7 +168,7 @@ def main(page: ft.Page):
         status_text = ft.Text(t["status_ready"], size=13, color="green")
         progress_ring = ft.ProgressRing(visible=False, width=20, height=20)
         
-        results_column = ft.Column(spacing=4)
+        results_column = ft.Column(spacing=2) # Spaziatura ridotta e uniforme per evitare spazi anomali
         results_container = ft.Container(
             content=results_column,
             padding=ft.padding.only(bottom=100)
@@ -180,7 +181,7 @@ def main(page: ft.Page):
         )
 
         def open_charts(e):
-            page.launch_url("https://www.barchart.com/futures")
+            page.launch_url("https://www.barchart.com/futures/commitment-of-traders")
 
         def run_analysis(e):
             status_text.value = t["status_download"]
@@ -230,10 +231,9 @@ def main(page: ft.Page):
                 market_data = {}
                 
                 for category_name, keywords in categories.items():
-                    all_results.append(f"\n--- {category_name} ---")
+                    all_results.append((category_name, "HEADER"))
                     
                     for kw in keywords:
-                        found = False
                         for row in rows:
                             if not row or len(row) < 40:
                                 continue
@@ -278,7 +278,7 @@ def main(page: ft.Page):
                                         f"Short: {pct_short:5.1f}% ({change_short:+6d} ctr) | "
                                         f"Net Slope: {net_slope:+6.1f} [{bias}]"
                                     )
-                                    all_results.append(line)
+                                    all_results.append((line, "MARKET"))
                                     
                                     clean_key = kw.upper()
                                     market_data[clean_key] = {
@@ -289,8 +289,6 @@ def main(page: ft.Page):
                                         "chg_short": change_short,
                                         "net_slope": net_slope
                                     }
-                                    
-                                    found = True
                                     break
                                 except Exception:
                                     pass
@@ -309,9 +307,9 @@ def main(page: ft.Page):
 
                 sorted_curs = sorted(cur_strength.items(), key=lambda x: x[1], reverse=True)
                 
-                signals.append(t["sig_valute"])
+                signals.append((t["sig_valute"], "SUBHEADER"))
                 if len(sorted_curs) >= 2:
-                    signals.append(f"-> [TOP SETUP ABS] {sorted_curs[0][0]}/{sorted_curs[-1][0]} | Max div ({sorted_curs[0][0]}: {sorted_curs[0][1]:+.1f} vs {sorted_curs[-1][0]}: {sorted_curs[-1][1]:+.1f})")
+                    signals.append((f"-> [TOP SETUP ABS] {sorted_curs[0][0]}/{sorted_curs[-1][0]} | Max div ({sorted_curs[0][0]}: {sorted_curs[0][1]:+.1f} vs {sorted_curs[-1][0]}: {sorted_curs[-1][1]:+.1f})", "TEXT"))
 
                 major_pairs = [
                     ("EUR", "USD"), ("GBP", "USD"), ("AUD", "USD"), ("NZD", "USD"),
@@ -319,17 +317,17 @@ def main(page: ft.Page):
                     ("EUR", "GBP"), ("EUR", "JPY"), ("GBP", "JPY"), ("AUD", "JPY")
                 ]
                 
-                signals.append("\n--- ANALISI DINAMICA CROSS PRINCIPALI ---")
+                signals.append(("--- ANALISI DINAMICA CROSS PRINCIPALI ---", "SUBHEADER"))
                 for base, quote in major_pairs:
                     if base in cur_strength and quote in cur_strength:
                         s_base, s_quote = cur_strength[base], cur_strength[quote]
                         diff = s_base - s_quote
                         if diff > 10:
-                            signals.append(f"-> [LONG {base}/{quote}] Favorevole a {base} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})")
+                            signals.append((f"-> [LONG {base}/{quote}] Favorevole a {base} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})", "TEXT"))
                         elif diff < -10:
-                            signals.append(f"-> [SHORT {base}/{quote}] Favorevole a {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})")
+                            signals.append((f"-> [SHORT {base}/{quote}] Favorevole a {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})", "TEXT"))
 
-                signals.append(t["sec_commodities"])
+                signals.append((t["sec_commodities"], "SUBHEADER"))
                 commodities_to_check = ["GOLD", "SILVER", "CRUDE OIL", "COPPER", "LUMBER", "CORN", "SOYBEANS"]
                 usd_slope = cur_strength.get("USD", 0)
                 
@@ -340,18 +338,19 @@ def main(page: ft.Page):
                         slope = comm_data["net_slope"]
                         
                         if comm_data["pct_short"] > 60 and comm_data["chg_short"] < 0:
-                            signals.append(f"-> [COMMODITY / SQUEEZE] {c_name}: Short in chiusura (Slope: {slope:+.1f}).")
+                            signals.append((f"-> [COMMODITY / SQUEEZE] {c_name}: Short in chiusura (Slope: {slope:+.1f}).", "TEXT"))
                         elif slope > 15 and usd_slope < 0:
-                            signals.append(f"-> [COMMODITY / BULLISH] {c_name}: Forte long con USD debole (Slope: {slope:+.1f}).")
+                            signals.append((f"-> [COMMODITY / BULLISH] {c_name}: Forte long con USD debole (Slope: {slope:+.1f}).", "TEXT"))
                         elif slope < -15 and usd_slope > 0:
-                            signals.append(f"-> [COMMODITY / BEARISH] {c_name}: Forte short con USD forte (Slope: {slope:+.1f}).")
+                            signals.append((f"-> [COMMODITY / BEARISH] {c_name}: Forte short con USD forte (Slope: {slope:+.1f}).", "TEXT"))
 
+                # Inserimento ordinato nella UI senza salti anomali
                 results_column.controls.append(ft.Text(t["report_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
                 results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
-                for item in all_results:
-                    if item.startswith("\n---"):
-                        results_column.controls.append(ft.Text(item, weight=ft.FontWeight.BOLD, color="cyan", size=12))
+                for item, itype in all_results:
+                    if itype == "HEADER":
+                        results_column.controls.append(ft.Text(f"\n--- {item} ---", weight=ft.FontWeight.BOLD, color="cyan", size=12))
                     else:
                         market_key = None
                         for key in BARCHART_LINKS.keys():
@@ -375,9 +374,9 @@ def main(page: ft.Page):
                 results_column.controls.append(ft.Text(t["screening_header"], weight=ft.FontWeight.BOLD, color="yellow", size=11))
                 results_column.controls.append(ft.Text("=" * 70, color="white24", size=10))
 
-                for sig in signals:
-                    if sig.startswith("\n---") or sig.startswith("---"):
-                        results_column.controls.append(ft.Text(sig, weight=ft.FontWeight.BOLD, color="amber", size=12))
+                for sig, stype in signals:
+                    if stype == "SUBHEADER":
+                        results_column.controls.append(ft.Text(f"\n{sig}", weight=ft.FontWeight.BOLD, color="amber", size=12))
                     else:
                         results_column.controls.append(ft.Text(sig, size=11, color="white70"))
 
@@ -395,7 +394,6 @@ def main(page: ft.Page):
             color="white"
         )
 
-        # Pulsante verde senza dipendenze da ft.icons per evitare errori di versione
         charts_btn = ft.ElevatedButton(
             t["btn_charts"],
             on_click=open_charts,
