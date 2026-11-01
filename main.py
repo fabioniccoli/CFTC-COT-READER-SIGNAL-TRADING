@@ -116,17 +116,17 @@ TRANSLATIONS = {
 
 # Mappatura completa Barchart
 BARCHART_LINKS = {
-    "SWISS FRANC": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6S*0",
+    "SWISS FRANC": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/S6*0",
     "USD INDEX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/DX*0",
-    "MEXICAN PESO": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6M*0",
-    "NZ DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6N*0",
-    "CANADIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6C*0",
-    "BRAZILIAN REAL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6L*0",
+    "MEXICAN PESO": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/M6*0",
+    "NZ DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/N6*0",
+    "CANADIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/D6*0",
+    "BRAZILIAN REAL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/L6*0",
     "SOUTH AFRICAN RAND": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6Z*0",
-    "BRITISH POUND": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6B*0",
-    "JAPANESE YEN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6J*0",
-    "EURO FX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6E*0",
-    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/6A*0",
+    "BRITISH POUND": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/B6*0",
+    "JAPANESE YEN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/J6*0",
+    "EURO FX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/E6*0",
+    "AUSTRALIAN DOLLAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/A6*0",
     "CORN": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZC*0",
     "SOYBEANS": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZS*0",
     "SOYBEAN OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ZL*0",
@@ -141,13 +141,13 @@ BARCHART_LINKS = {
     "COPPER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HG*0",
     "PALLADIUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/PA*0",
     "PLATINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/PL*0",
-    "ALUMINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ALI*0",
+    "ALUMINUM": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/AL*0",
     "COCOA": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CC*0",
     "COTTON": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CT*0",
     "COFFEE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/KC*0",
     "SUGAR": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/SB*0",
     "ORANGE JUICE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/OJ*0",
-    "LUMBER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/LBS*0",
+    "LUMBER": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/LB*0",
     "CRUDE OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/CL*0",
     "GASOLINE": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RB*0",
     "HEATING OIL": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/HO*0",
@@ -156,8 +156,8 @@ BARCHART_LINKS = {
     "S&P 500": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/ES*0",
     "NASDAQ-100": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/NQ*0",
     "DOW JONES": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/YM*0",
-    "RUSSELL 2000": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/RTY*0",
-    "VIX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/VX*0"
+    "RUSSELL 2000": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/QR*0",
+    "VIX": "https://www.barchart.com/futures/commitment-of-traders/interactive-charts/VI*0"
 }
 
 def main(page: ft.Page):
