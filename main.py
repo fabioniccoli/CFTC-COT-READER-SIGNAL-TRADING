@@ -150,9 +150,8 @@ def main(page: ft.Page):
         _0xe3b5e0 = ft.ElevatedButton(_0x0f5e3a['btn_charts'], on_click=open_charts, bgcolor='green', color='white')
         page.add(_0x59af68, _0xe4d8ff, ft.Divider(height=15, color='white24'), _0x83049c, ft.Container(height=5), ft.Row([_0x0d3d48, _0xe3b5e0, _0x206e6c], alignment=ft.MainAxisAlignment.START, spacing=10), ft.Divider(height=15, color='white24'), _0x34dab4)
     except Exception as ex:
-                # Stampiamo l'errore esatto a schermo in rosso con tutti i dettagli
-                status_text.value = f"ERRORE CRITICO: {type(ex).__name__} - {str(ex)}"
-                status_text.color = "red"
-                print(f"DEBUG ERROR: {ex}") # utile se riesci a vedere i log
+                # Usiamo 'ex' che è l'argomento corretto dell'eccezione, non una variabile inventata
+                _0x83049c.value = f"Errore: {type(ex).__name__} - {str(ex)}"
+                _0x83049c.color = "red"
 if __name__ == '__main__':
     ft.app(target=main)
