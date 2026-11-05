@@ -12,7 +12,7 @@ class PurePythonObfuscator(ast.NodeTransformer):
             # Librerie e componenti Flet/Python
             'main', 'page', 'ft', 'urllib', 'csv', 'io', 'os', 'datetime', 'hashlib', 'request',
             'TRANSLATIONS', 'BARCHART_LINKS', 'categories', 'market_data', 'cur_strength', 'categories',
-            'run_analysis', 'open_charts', 'change_language',
+            'run_analysis', 'open_charts', 'change_language', 'sorted',
             
             # Categorie e sezioni UI
             'cat_valute', 'cat_grains', 'cat_metalli', 'cat_softs', 'cat_energies', 'cat_indici',
