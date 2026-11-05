@@ -25,7 +25,7 @@ jobs:
 
     - name: 🔒 Esegui Offuscamento del Codice AST
       run: |
-        python obfuscate.py main_pulito.py main_protected.py
+        python obfuscate.py main.py main_protected.py
         # Sostituiamo temporaneamente il file main principale con quello protetto per Flet Build
         cp main_protected.py main.py
 
