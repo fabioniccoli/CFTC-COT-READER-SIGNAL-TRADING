@@ -2,17 +2,23 @@ import ast
 import random
 import string
 import sys
+import builtins
 
 class PurePythonObfuscator(ast.NodeTransformer):
     def __init__(self):
         super().__init__()
         self.mapping = {}
-        # Lista estesa di nomi e chiavi che NON devono essere mai rinominati
+        # Lista estesa di nomi, chiavi e funzioni che NON devono essere mai rinominati
         self.reserved = {
+            # Funzioni built-in di Python fondamentali
+            'sorted', 'print', 'len', 'range', 'list', 'str', 'int', 'float', 
+            'dict', 'set', 'tuple', 'open', 'super', 'Exception', 'True', 'False', 'None',
+            'min', 'max', 'sum', 'abs', 'round', 'enumerate', 'zip', 'map', 'filter',
+
             # Librerie e componenti Flet/Python
             'main', 'page', 'ft', 'urllib', 'csv', 'io', 'os', 'datetime', 'hashlib', 'request',
-            'TRANSLATIONS', 'BARCHART_LINKS', 'categories', 'market_data', 'cur_strength', 'categories',
-            'run_analysis', 'open_charts', 'change_language', 'sorted',
+            'TRANSLATIONS', 'BARCHART_LINKS', 'categories', 'market_data', 'cur_strength',
+            'run_analysis', 'open_charts', 'change_language',
             
             # Categorie e sezioni UI
             'cat_valute', 'cat_grains', 'cat_metalli', 'cat_softs', 'cat_energies', 'cat_indici',
@@ -31,20 +37,19 @@ class PurePythonObfuscator(ast.NodeTransformer):
             'NASDAQ-100', 'DOW JONES', 'RUSSELL 2000', 'VIX',
             
             # Simboli Valute
-            'EUR', 'GBP', 'JPY', 'AUD', 'NZD', 'CAD', 'CHF', 'USD',
-
-            # Built-in di Python
-            'print', 'len', 'range', 'list', 'str', 'int', 'float', 'dict', 'set',
-            'tuple', 'open', 'super', 'Exception', 'True', 'False', 'None'
+            'EUR', 'GBP', 'JPY', 'AUD', 'NZD', 'CAD', 'CHF', 'USD'
         }
 
     def _generate_hex_name(self):
+        # Genera identificatori esadecimali casuali
         rand_hex = ''.join(random.choices('0123456789abcdef', k=6))
         return f"_0x{rand_hex}"
 
     def get_new_name(self, original_name):
-        if original_name.startswith('__') or original_name in self.reserved:
+        # PROTEZIONE FORZATA: se inizia per __, è nella lista reserved o è una built-in di Python, non toccarlo
+        if original_name.startswith('__') or original_name in self.reserved or original_name in dir(builtins):
             return original_name
+            
         if original_name not in self.mapping:
             new_name = self._generate_hex_name()
             while new_name in self.mapping.values():
@@ -54,6 +59,7 @@ class PurePythonObfuscator(ast.NodeTransformer):
 
     def visit_FunctionDef(self, node):
         node.name = self.get_new_name(node.name)
+        # Rimuove docstring se presente
         if (node.body and isinstance(node.body[0], ast.Expr) and 
             isinstance(node.body[0].value, ast.Constant) and 
             isinstance(node.body[0].value.value, str)):
@@ -70,7 +76,7 @@ class PurePythonObfuscator(ast.NodeTransformer):
         node.arg = self.get_new_name(node.arg)
         return node
 
-def obfuscate_file(input_file="main.py", output_file="main_protected.py"):
+def obfuscate_file(input_file="main_pulito.py", output_file="main_protected.py"):
     try:
         with open(input_file, "r", encoding="utf-8") as f:
             source = f.read()
@@ -80,6 +86,7 @@ def obfuscate_file(input_file="main.py", output_file="main_protected.py"):
         transformed = obfuscator.visit(parsed)
         ast.fix_missing_locations(transformed)
 
+        # Genera il codice Python trasformato
         obfuscated_code = ast.unparse(transformed)
 
         with open(output_file, "w", encoding="utf-8") as f:
@@ -87,7 +94,7 @@ def obfuscate_file(input_file="main.py", output_file="main_protected.py"):
             f.write(obfuscated_code)
 
         print(f"SUCCESS: File '{input_file}' offuscato con successo in '{output_file}'!")
-        print(f"Identificatori ridenominati in hex: {len(obfuscator.mapping)}")
+        print(f"Variabili e funzioni ridenominate: {len(obfuscator.mapping)}")
 
     except Exception as e:
         print(f"ERRORE durante l'offuscamento: {e}")
