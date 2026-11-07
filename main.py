@@ -1,3 +1,94 @@
+import datetime
+import os
+import flet as ft
+
+def main(page: ft.Page):
+    # --- SISTEMA DI DEMO 60 GIORNI & RACCOLTA LEAD ---
+    license_file = "license.key"
+    trial_days = 60
+    today = datetime.date.today()
+
+    if not os.path.exists(license_file):
+        # Prima esecuzione: crea la data di attivazione della demo
+        with open(license_file, "w") as f:
+            f.write(today.isoformat())
+        activation_date = today
+    else:
+        # Legge la data di attivazione salvata
+        with open(license_file, "r") as f:
+            saved_date_str = f.read().strip()
+        try:
+            activation_date = datetime.date.fromisoformat(saved_date_str)
+        except ValueError:
+            activation_date = today
+
+    # Calcola i giorni trascorsi
+    elapsed_days = (today - activation_date).days
+
+    if elapsed_days > trial_days:
+        # PERIODO DI PROVA SCADUTO - MOSTRA SCHERMATA PRO / LISTA D'ATTESA + DISCLAIMER
+        page.title = "CFTC COT Analyzer - Prova Terminata"
+        page.theme_mode = ft.ThemeMode.DARK
+        page.padding = 20
+        
+        page.add(
+            ft.ListView([
+                ft.Column([
+                    ft.Text("⚠️ IL PERIODO DI PROVA DI 60 GIORNI E' SCADUTO", size=18, weight=ft.FontWeight.BOLD, color="red"),
+                    ft.Divider(height=15, color="white24"),
+                    ft.Text("Speriamo che l'analisi automatizzata del COT CFTC ti sia stata utile!", size=13, color="white"),
+                    ft.Text("La versione PRO commerciale sarà disponibile a brevissimo.", size=13, color="white70"),
+                    ft.Container(height=10),
+                    ft.Container(
+                        content=ft.Column([
+                            ft.Text("OFFERTA PRE-LANCIO LIFETIME", weight=ft.FontWeight.BOLD, color="yellow", size=12),
+                            ft.Text("Prezzo d'acquisto unico (Nessun abbonamento):", size=12, color="white"),
+                            ft.Text("SOLO 9,00 €", size=26, weight=ft.FontWeight.BOLD, color="green"),
+                        ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER),
+                        padding=15,
+                        border_radius=10,
+                        bgcolor="white10"
+                    ),
+                    ft.Container(height=15),
+                    ft.ElevatedButton(
+                        "🌟 Prenota la tua licenza a 9€ (Lista d'Attesa)",
+                        bgcolor="purple",
+                        color="white",
+                        on_click=lambda e: page.launch_url("https://docs.google.com/forms/d/e/1FAIpQLSfWMwAitp2ytV-CXU2YFGEBqLC88QM9rxHijfEelcLh3CgjOQ/viewform?usp=header")
+                    ),
+                    ft.Container(height=20),
+                    ft.Divider(height=10, color="white24"),
+                    # --- AVVERTENZA / DISCLAIMER ---
+                    ft.Text(
+                        "AVVERTENZA!!\n"
+                        "Le opzioni e CFD sono strumenti complessi ad alto rischio di perdita di capitale dovuto alla leva. "
+                        "Il 74% di conti di investitori al dettaglio perdono denaro a causa delle negoziazioni in CFD. "
+                        "Valutate se potete permettervi di correre l’elevato rischio di perdere il vostro denaro. "
+                        "La seguente app non fa altro che semplificare la lettura dei dati report cftc visibili sul sito "
+                        "https://www.cftc.gov/dea/newcot/deafut.txt e fornire la lettura dei grafici dal sito barchart.com; "
+                        "non è in nessun modo un'app da ritenersi come signal bot trading o quant'altro. "
+                        "Non siamo in nessun modo responsabili di eventuali perdite di denaro da voi subite.",
+                        size=9,
+                        color="white54",
+                        italic=True,
+                        text_align=ft.TextAlign.LEFT
+                    )
+                ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+            ], expand=True)
+        )
+        page.update()
+        return  # Blocca l'esecuzione dell'app
+
+    # --- CONTINUA CON L'APP NORMALE (VERSIONE DEMO ATTIVA) ---
+    page.title = "CFTC COT Analyzer"
+    page.theme_mode = ft.ThemeMode.DARK
+    
+    page.add(
+        ft.Text("Benvenuto nella versione Demo del CFTC COT Analyzer!", size=16, color="white")
+    )
+    page.update()
+
+ft.app(target=main)
 import flet as ft
 import urllib.request
 import csv
