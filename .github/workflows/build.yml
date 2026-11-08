@@ -1,14 +1,4 @@
 name: Build Android APK (Offuscato)
-         
-name: Set up JDK 17
-uses: actions/setup-java@v4
-with:
-  distribution: 'temurin'
-   java-version: '17'
-   
-name: Build Flet APK
-run: |
-  flet build apk
 
 on:
   push:
@@ -28,10 +18,15 @@ jobs:
       with:
         python-version: '3.10'
 
+    - name: ☕ Configura Java JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
     - name: 📦 Installa la versione esatta dal progetto (Flet 0.28.3)
       run: |
         python -m pip install --upgrade pip
-        # Installa esattamente la versione presente nel tuo flet.yml
         pip install flet==0.28.3 requests
 
     - name: 🔒 Esegui Offuscamento del Codice AST
