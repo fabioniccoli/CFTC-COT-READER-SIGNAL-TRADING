@@ -471,8 +471,19 @@ def main(page: ft.Page):
                     headers={'User-Agent': 'Mozilla/5.0'}
                 )
                 
-                with urllib.request.urlopen(req, timeout=15) as response:
-                    content = response.read().decode('utf-8', errors='ignore')
+                # --- SISTEMA DI TENTATIVI MULTIPLI (RETRY) CONTRO I TIMEOUT 504 ---
+                content = None
+                max_attempts = 3
+                for attempt in range(max_attempts):
+                    try:
+                        with urllib.request.urlopen(req, timeout=20) as response:
+                            content = response.read().decode('utf-8', errors='ignore')
+                            break # Se ha successo, esce dal ciclo
+                    except Exception as net_err:
+                        if attempt == max_attempts - 1:
+                            raise net_err # Se esaurisce i tentativi, lancia l'errore
+                        import time
+                        time.sleep(2) # Attende 2 secondi prima di riprovare
 
                 f = io.StringIO(content)
                 reader = csv.reader(f)
