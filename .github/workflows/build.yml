@@ -1,15 +1,14 @@
 name: Build Android APK (Offuscato)
-# 1. Installa ufficialmente Java (JDK 17) in modo stabile
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      # 2. Subito dopo fai partire la build di Flet
-      - name: Build Flet APK
-        run: |
-          flet build apk
+         
+name: Set up JDK 17
+uses: actions/setup-java@v4
+with:
+  distribution: 'temurin'
+   java-version: '17'
+   
+name: Build Flet APK
+run: |
+  flet build apk
 
 on:
   push:
