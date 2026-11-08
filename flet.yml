@@ -3,5 +3,3 @@ app:
   description: "CFTC COT Analysis Tool"
   include_packages:
     - flet==0.28.3
-    - pandas
-    - requests
