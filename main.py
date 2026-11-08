@@ -10,7 +10,8 @@ import flet as ft
 # ==========================================
 TRANSLATIONS = {
     "Italiano": {
-        "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title": "CFTC COT Analyzer",
+        "title1": "NO Commercial Group",
         "btn_ready": "Avvia Analisi",
         "btn_charts": "Apri Barchart COT",
         "status_ready": "Pronto per l'analisi",
@@ -53,7 +54,8 @@ TRANSLATIONS = {
         "expired_btn": "🌟 Prenota la tua licenza a 9€ (Lista d'Attesa)"
     },
     "English": {
-        "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title": "CFTC COT Analyzer",
+        "title1": "NO Commercial Group",
         "btn_ready": "Start Analysis",
         "btn_charts": "Open Barchart COT",
         "status_ready": "Ready for analysis",
@@ -95,7 +97,8 @@ TRANSLATIONS = {
         "expired_btn": "🌟 Reserve your €9 license (Waiting List)"
     },
     "Español": {
-        "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title": "CFTC COT Analyzer",
+        "title1": "NO Commercial Group",
         "btn_ready": "Iniciar Análisis",
         "btn_charts": "Abrir Barchart COT",
         "status_ready": "Listo para el análisis",
@@ -135,7 +138,8 @@ TRANSLATIONS = {
         "expired_btn": "🌟 Reserva tu licencia por 9€ (Lista de espera)"
     },
     "Deutsch": {
-        "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title": "CFTC COT Analyzer",
+        "title1": "NO Commercial Group",
         "btn_ready": "Analyse Starten",
         "btn_charts": "Barchart COT Öffnen",
         "status_ready": "Bereit für die Analyse",
@@ -175,7 +179,8 @@ TRANSLATIONS = {
         "expired_btn": "🌟 Reservieren Sie Ihre 9€-Lizenz (Warteliste)"
     },
     "Français": {
-        "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title": "CFTC COT Analyzer",
+        "title1": "NO Commercial Group",
         "btn_ready": "Lancer l'analyse",
         "btn_charts": "Ouvrir Barchart COT",
         "status_ready": "Prêt pour l'analyse",
@@ -391,8 +396,10 @@ def main(page: ft.Page):
             border_radius=5
         )
 
-        title_text = ft.Text(t["title"], size=22, weight=ft.FontWeight.BOLD, color="white")
-        
+        title_text = ft.Text(t["title"], size=18, weight=ft.FontWeight.BOLD, color="white")
+        title1_text = ft.Text(t["title1"], size=16, weight=ft.FontWeight.BOLD, color="cyan")
+        title_column = ft.Column([title_text, title1_text], spacing=0)
+
         # --- BLOCCO DISCLAIMER DINAMICO (SCOMPARE AD AVVIO ANALISI) ---
         disclaimer_title_text = ft.Text(t["disclaimer_title"], size=14, weight=ft.FontWeight.BOLD, color="red")
         disclaimer_body_text = ft.Text(t["disclaimer_body"], size=13, color="white54", italic=True)
@@ -668,14 +675,17 @@ def main(page: ft.Page):
             color="white"
         )
 
-        header_row = ft.Row(
-            controls=[title_text, demo_badge],
-            alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+        lang_and_badge_row = ft.Row(
+            controls=[lang_dropdown, demo_badge],
+            alignment=ft.MainAxisAlignment.START,
+            vertical_alignment=ft.CrossAxisAlignment.CENTER,
+            spacing=15  # Distanza tra il menu della lingua e il badge DEMO
         )
 
         page.add(
-            header_row,
-            lang_dropdown,
+            ft.Container(height=10),
+            title_column,
+            lang_and_badge_row,
             ft.Divider(height=15, color="white24"),
             status_text,
             ft.Container(height=5),
