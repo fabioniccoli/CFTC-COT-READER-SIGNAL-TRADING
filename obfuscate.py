@@ -76,7 +76,7 @@ class PurePythonObfuscator(ast.NodeTransformer):
         node.arg = self.get_new_name(node.arg)
         return node
 
-def obfuscate_file(input_file="main_pulito.py", output_file="main_protected.py"):
+def obfuscate_file(input_file="main.py", output_file="main_protected.py"):
     try:
         with open(input_file, "r", encoding="utf-8") as f:
             source = f.read()
@@ -100,6 +100,6 @@ def obfuscate_file(input_file="main_pulito.py", output_file="main_protected.py")
         print(f"ERRORE durante l'offuscamento: {e}")
 
 if __name__ == "__main__":
-    in_file = sys.argv[1] if len(sys.argv) > 1 else "main_pulito.py"
+    in_file = sys.argv[1] if len(sys.argv) > 1 else "main.py"
     out_file = sys.argv[2] if len(sys.argv) > 2 else "main_protected.py"
     obfuscate_file(in_file, out_file)
