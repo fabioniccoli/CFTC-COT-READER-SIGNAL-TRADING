@@ -8,7 +8,7 @@ import io
 # ==========================================
 TRANSLATIONS = {
     "Italiano": {
-        "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title": "CFTC COT Analyzer",
         "title1": "NO Commercial Group",
         "btn_ready": "Avvia Analisi",
         "btn_charts": "Apri Barchart COT",
@@ -523,6 +523,7 @@ def main(page: ft.Page):
         )
 
         page.add(
+			ft.Container(height=10),
             title_column,
             lang_dropdown,
             ft.Divider(height=15, color="white24"),
