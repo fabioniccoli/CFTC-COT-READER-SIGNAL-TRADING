@@ -9,6 +9,7 @@ import io
 TRANSLATIONS = {
     "Italiano": {
         "title": "CFTC COT Analyzer-NO Commercial Group",
+        "title1": "NO Commercial Group",
         "btn_ready": "Avvia Analisi",
         "btn_charts": "Apri Barchart COT",
         "status_ready": "Pronto per l'analisi",
@@ -32,7 +33,17 @@ TRANSLATIONS = {
         "cross_short": "-> [SHORT {base}/{quote}] Favorevole a {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})",
         "comm_squeeze": "-> [COMMODITY / SQUEEZE] {name}: Short in chiusura (Slope: {slope:+.1f}).",
         "comm_bullish": "-> [COMMODITY / BULLISH] {name}: Forte long con USD debole (Slope: {slope:+.1f}).",
-        "comm_bearish": "-> [COMMODITY / BEARISH] {name}: Forte short con USD forte (Slope: {slope:+.1f})."
+        "comm_bearish": "-> [COMMODITY / BEARISH] {name}: Forte short con USD forte (Slope: {slope:+.1f}).",
+	"disclaimer_title": "AVVERTENZA!!",
+        "disclaimer_body": (
+            "Le opzioni e CFD sono strumenti complessi ad alto rischio di perdita di capitale dovuto alla leva. "
+            "Il 74% di conti di investitori al dettaglio perdono denaro a causa delle negoziazioni in CFD. "
+            "Valutate se potete permettervi di correre l’elevato rischio di perdere il vostro denaro. "
+            "La seguente app non fa altro che semplificare la lettura dei dati report cftc visibili sul sito "
+            "https://www.cftc.gov/dea/newcot/deafut.txt e fornire la lettura dei grafici dal sito barchart.com; "
+            "non è in nessun modo un'app da ritenersi come signal bot trading o quant'altro. "
+            "Non siamo in nessun modo responsabili di eventuali perdite di denaro da voi subite."
+	)
     },
     "English": {
         "title": "CFTC COT Analyzer-NO Commercial Group",
@@ -59,7 +70,17 @@ TRANSLATIONS = {
         "cross_short": "-> [SHORT {base}/{quote}] Favorable to {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})",
         "comm_squeeze": "-> [COMMODITY / SQUEEZE] {name}: Short covering (Slope: {slope:+.1f}).",
         "comm_bullish": "-> [COMMODITY / BULLISH] {name}: Strong long with weak USD (Slope: {slope:+.1f}).",
-        "comm_bearish": "-> [COMMODITY / BEARISH] {name}: Strong short with strong USD (Slope: {slope:+.1f})."
+        "comm_bearish": "-> [COMMODITY / BEARISH] {name}: Strong short with strong USD (Slope: {slope:+.1f}).",
+	"disclaimer_title": "WARNING / RISK DISCLAIMER!!",
+        "disclaimer_body": (
+            "CFDs and Options are complex instruments with a high risk of losing money rapidly due to leverage. "
+            "74% of retail investor accounts lose money when trading CFDs. "
+            "You should consider whether you can afford to take the high risk of losing your money. "
+            "This application simply simplifies the reading of public CFTC report data from "
+            "https://www.cftc.gov/dea/newcot/deafut.txt and provides chart viewing via barchart.com. "
+            "It is by no means a trading signal bot or financial advice. "
+            "We are in no way responsible for any financial losses incurred."
+        )
     },
     "Español": {
         "title": "CFTC COT Analyzer-NO Commercial Group",
@@ -86,7 +107,15 @@ TRANSLATIONS = {
         "cross_short": "-> [SHORT {base}/{quote}] Favorable a {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})",
         "comm_squeeze": "-> [COMMODITY / SQUEEZE] {name}: Cierre de cortos (Slope: {slope:+.1f}).",
         "comm_bullish": "-> [COMMODITY / BULLISH] {name}: Fuerte long con USD débil (Slope: {slope:+.1f}).",
-        "comm_bearish": "-> [COMMODITY / BULLISH] {name}: Fuerte short con USD fuerte (Slope: {slope:+.1f})."
+        "comm_bearish": "-> [COMMODITY / BULLISH] {name}: Fuerte short con USD fuerte (Slope: {slope:+.1f}).",
+	"disclaimer_title": "ADVERTENCIA DE RIESGO!!",
+        "disclaimer_body": (
+            "Los CFD y las opciones son instrumentos complejos y conllevan un alto riesgo de perder dinero rápidamente debido al apalancamiento. "
+            "El 74% de las cuentas de inversores minoristas pierden dinero al negociar CFD. "
+            "Debe considerar si comprende cómo funcionan los CFD y si puede permitirse asumir el alto riesgo de perder su dinero. "
+            "Esta aplicación solo simplifica la lectura de los datos oficiales de los informes CFTC y redirige a los gráficos de barchart.com; "
+            "no debe considerarse en ningún caso un bot de señales de trading. No nos hacemos responsables de las pérdidas económicas sufridas."
+        )
     },
     "Deutsch": {
         "title": "CFTC COT Analyzer-NO Commercial Group",
@@ -113,7 +142,15 @@ TRANSLATIONS = {
         "cross_short": "-> [SHORT {base}/{quote}] Günstig für {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})",
         "comm_squeeze": "-> [COMMODITY / SQUEEZE] {name}: Short-Eindeckung (Slope: {slope:+.1f}).",
         "comm_bullish": "-> [COMMODITY / BULLISH] {name}: Starkes Long bei schwachem USD (Slope: {slope:+.1f}).",
-        "comm_bearish": "-> [COMMODITY / BULLISH] {name}: Starkes Short bei starkem USD (Slope: {slope:+.1f})."
+        "comm_bearish": "-> [COMMODITY / BULLISH] {name}: Starkes Short bei starkem USD (Slope: {slope:+.1f}).",
+	"disclaimer_title": "WARNHINWEIS!!",
+        "disclaimer_body": (
+            "CFDs und Optionen sind komplexe Instrumente und gehen wegen der Hebelwirkung mit einem hohen Risiko einher, schnell Geld zu verlieren. "
+            "74% der Konten von Kleinanlegern verlieren beim CFD-Handel Geld. "
+            "Sie sollten überlegen, ob Sie es sich leisten können, das hohe Risiko einzugehen, Ihr Geld zu verlieren. "
+            "Diese App vereinfacht lediglich das Lesen öffentlich zugänglicher CFTC-Berichtsdaten und bietet Verlinkungen zu barchart.com; "
+            "sie ist in keiner Weise als Trading-Signal-Bot oder Finanzberatung zu verstehen."
+        )
     },
     "Français": {
         "title": "CFTC COT Analyzer-NO Commercial Group",
@@ -140,7 +177,15 @@ TRANSLATIONS = {
         "cross_short": "-> [SHORT {base}/{quote}] Favorable à {quote} (Slope: {base} {s_base:+.1f} vs {quote} {s_quote:+.1f})",
         "comm_squeeze": "-> [COMMODITY / SQUEEZE] {name} : Couverture de shorts (Slope: {slope:+.1f}).",
         "comm_bullish": "-> [COMMODITY / BULLISH] {name} : Long puissant avec USD faible (Slope: {slope:+.1f}).",
-        "comm_bearish": "-> [COMMODITY / BULLISH] {name} : Short puissant avec USD fort (Slope: {slope:+.1f})."
+        "comm_bearish": "-> [COMMODITY / BULLISH] {name} : Short puissant avec USD fort (Slope: {slope:+.1f}).",
+	"disclaimer_title": "AVERTISSEMENT DE RISQUE!!",
+        "disclaimer_body": (
+            "Les CFD et les options sont des instruments complexes et présentent un risque élevé de perte rapide en capital en raison de l'effet de levier. "
+            "74% des comptes d'investisseurs de détail perdent de l'argent lors de la négociation de CFD. "
+            "Vous devez vous demander si vous pouvez vous permettre de prendre le risque élevé de perdre votre argent. "
+            "Cette application simplifie uniquement la lecture des données publiques des rapports CFTC et renvoie vers barchart.com ; "
+            "elle ne doit en aucun cas être considérée comme un bot de signaux de trading."
+        )
     }
 }
 
@@ -199,7 +244,24 @@ def main(page: ft.Page):
 
         t = TRANSLATIONS[page.data["lang"]]
 
-        title_text = ft.Text(t["title"], size=22, weight=ft.FontWeight.BOLD, color="white")
+        title_text = ft.Text(t["title"], size=18, weight=ft.FontWeight.BOLD, color="white")
+        title1_text = ft.Text(t["title1"], size=16, weight=ft.FontWeight.BOLD, color="cyan")
+        title_column = ft.Column([title_text, title1_text], spacing=0)
+
+	# --- BLOCCO DISCLAIMER DINAMICO (SCOMPARE AD AVVIO ANALISI) ---
+        disclaimer_title_text = ft.Text(t["disclaimer_title"], size=14, weight=ft.FontWeight.BOLD, color="red")
+        disclaimer_body_text = ft.Text(t["disclaimer_body"], size=13, color="white54", italic=True)
+
+        disclaimer_container = ft.Container(
+            content=ft.Column([
+                disclaimer_title_text,
+                disclaimer_body_text
+            ], spacing=2),
+            padding=10,
+            border_radius=6,
+            bgcolor="white10",
+            visible=True
+        )
         
         def change_language(e):
             page.data["lang"] = lang_dropdown.value
@@ -208,6 +270,8 @@ def main(page: ft.Page):
             analyze_btn.text = lang_t["btn_ready"]
             charts_btn.text = lang_t["btn_charts"]
             status_text.value = lang_t["status_ready"]
+            disclaimer_title_text.value = lang_t["disclaimer_title"]
+            disclaimer_body_text.value = lang_t["disclaimer_body"]
             page.update()
 
         lang_dropdown = ft.Dropdown(
@@ -240,6 +304,7 @@ def main(page: ft.Page):
 
         def run_analysis(e):
             t = TRANSLATIONS[page.data.get("lang", "Italiano")]
+            disclaimer_container.visible = False
             status_text.value = t["status_download"]
             progress_ring.visible = True
             results_column.controls.clear()
@@ -458,12 +523,14 @@ def main(page: ft.Page):
         )
 
         page.add(
-            title_text,
+            title_column,
             lang_dropdown,
             ft.Divider(height=15, color="white24"),
             status_text,
             ft.Container(height=5),
             ft.Row([analyze_btn, charts_btn, progress_ring], alignment=ft.MainAxisAlignment.START, spacing=10),
+            ft.Container(height=10),
+            disclaimer_container,
             ft.Divider(height=15, color="white24"),
             horizontal_scroll_view
         )
@@ -478,3 +545,4 @@ def main(page: ft.Page):
 
 if __name__ == "__main__":
     ft.app(target=main)
+
