@@ -17,7 +17,7 @@ class PurePythonObfuscator(ast.NodeTransformer):
             # Moduli e classi Java/Android per ID hardware
             'hashlib', 'jnius', 'autoclass', 'PythonActivity', 'SettingsSecure',
             'mActivity', 'getContentResolver', 'ANDROID_ID', 'getString', 'getnode',
-            'sha256', 'hexdigest', 'pyjnius',
+            'sha256', 'hexdigest', 'pyjnius', 'ActivityThread', 'currentApplication',
 
             # Librerie e componenti Flet/Python
             'main', 'page', 'ft', 'urllib', 'csv', 'io', 'os', 'datetime', 'hashlib', 'request', 'json', 'uuid',
