@@ -252,16 +252,16 @@ BARCHART_LINKS = {
 
 def get_or_create_device_id():
     raw_hw_id = None
-    
-    # Lettura Android ID nativo (persiste anche dopo disinstallazione)
     try:
         from jnius import autoclass
         PythonActivity = autoclass('org.kivy.android.PythonActivity')
         SettingsSecure = autoclass('android.provider.Settings$Secure')
-        context = PythonActivity.mActivity
-        android_id = SettingsSecure.getString(context.getContentResolver(), SettingsSecure.ANDROID_ID)
-        if android_id and android_id != "9774d56d682e549c":
-            raw_hw_id = f"android_{android_id}"
+        activity = PythonActivity.mActivity
+        if activity:
+            content_resolver = activity.getContentResolver()
+            android_id = SettingsSecure.getString(content_resolver, SettingsSecure.ANDROID_ID)
+            if android_id and android_id != "9774d56d682e549c":
+                raw_hw_id = f"android_{android_id}"
     except Exception:
         pass
 
