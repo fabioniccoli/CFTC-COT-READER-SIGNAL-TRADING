@@ -252,32 +252,42 @@ BARCHART_LINKS = {
 
 def get_or_create_device_id():
     raw_hw_id = None
+    
+    # Tentativo sicuro di lettura Android ID
     try:
-        from jnius import autoclass
-        PythonActivity = autoclass('org.kivy.android.PythonActivity')
-        SettingsSecure = autoclass('android.provider.Settings$Secure')
-        activity = PythonActivity.mActivity
-        if activity:
-            content_resolver = activity.getContentResolver()
-            android_id = SettingsSecure.getString(content_resolver, SettingsSecure.ANDROID_ID)
-            if android_id and android_id != "9774d56d682e549c":
-                raw_hw_id = f"android_{android_id}"
+        import sys
+        if 'android' in sys.builtin_module_names or hasattr(sys, 'getandroidapilevel'):
+            from jnius import autoclass
+            PythonActivity = autoclass('org.kivy.android.PythonActivity')
+            activity = PythonActivity.mActivity
+            if activity:
+                SettingsSecure = autoclass('android.provider.Settings$Secure')
+                content_resolver = activity.getContentResolver()
+                android_id = SettingsSecure.getString(content_resolver, SettingsSecure.ANDROID_ID)
+                if android_id and android_id != "9774d56d682e549c":
+                    raw_hw_id = f"android_{android_id}"
     except Exception:
         pass
 
     if raw_hw_id:
         return hashlib.sha256(raw_hw_id.encode('utf-8')).hexdigest()[:32]
 
-    # Fallback su file locale
+    # Fallback su file locale (se Android ID non disponibile o su Desktop)
     key_file = 'device_id.key'
-    if os.path.exists(key_file):
-        with open(key_file, 'r') as f:
-            return f.read().strip()
-    else:
+    try:
+        if os.path.exists(key_file):
+            with open(key_file, 'r') as f:
+                content = f.read().strip()
+                if content:
+                    return content
+        
         new_id = str(uuid.uuid4())
         with open(key_file, 'w') as f:
             f.write(new_id)
         return new_id
+    except Exception:
+        # Estremo fallback in memoria se il filesystem dovesse dare problemi di permessi
+        return str(uuid.uuid4())
 
 def check_license_with_firebase(device_id):
     url = f'{FIRESTORE_URL}/{device_id}'
