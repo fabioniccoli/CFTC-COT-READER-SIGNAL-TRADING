@@ -14,6 +14,11 @@ class PurePythonObfuscator(ast.NodeTransformer):
             'dict', 'set', 'tuple', 'open', 'super', 'Exception', 'True', 'False', 'None',
             'min', 'max', 'sum', 'abs', 'round', 'enumerate', 'zip', 'map', 'filter',
 
+            # Moduli e classi Java/Android per ID hardware
+            'hashlib', 'jnius', 'autoclass', 'PythonActivity', 'SettingsSecure',
+            'mActivity', 'getContentResolver', 'ANDROID_ID', 'getString', 'getnode',
+            'sha256', 'hexdigest',
+
             # Librerie e componenti Flet/Python
             'main', 'page', 'ft', 'urllib', 'csv', 'io', 'os', 'datetime', 'hashlib', 'request', 'json', 'uuid',
             'TRANSLATIONS', 'BARCHART_LINKS', 'categories', 'market_data', 'cur_strength',
