@@ -333,6 +333,7 @@ def main(page: ft.Page):
             )
 
             page.add(ft.Column([
+                ft.Container(height=30), # Spaziatore superiore per evitare la fotocamera dello smartphone
                 net_lang_dropdown,
                 ft.Container(height=10),
                 err_title, 
