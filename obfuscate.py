@@ -1,6 +1,5 @@
 import ast
 import random
-import string
 import sys
 import builtins
 
@@ -16,15 +15,29 @@ class PurePythonObfuscator(ast.NodeTransformer):
             'min', 'max', 'sum', 'abs', 'round', 'enumerate', 'zip', 'map', 'filter',
 
             # Librerie e componenti Flet/Python
-            'main', 'page', 'ft', 'urllib', 'csv', 'io', 'os', 'datetime', 'hashlib', 'request',
+            'main', 'page', 'ft', 'urllib', 'csv', 'io', 'os', 'datetime', 'hashlib', 'request', 'json', 'uuid',
             'TRANSLATIONS', 'BARCHART_LINKS', 'categories', 'market_data', 'cur_strength',
-            'run_analysis', 'open_charts', 'change_language',
+            'run_analysis', 'open_charts', 'change_language', 'get_or_create_device_id', 'check_license_with_firebase',
+            'device_id', 'status', 'days_left',
+            
+            # Parametri e chiavi per le API REST di Firebase Firestore
+            'fields', 'install_date', 'is_pro', 'stringValue', 'booleanValue',
+            'documents', 'name', 'mapValue', 'FIREBASE_PROJECT_ID', 'FIRESTORE_URL',
+            # Eccezioni e variabili di errore da proteggere
+            'e', 'ex', 'initialization_error', 'code',
             
             # Categorie e sezioni UI
             'cat_valute', 'cat_grains', 'cat_metalli', 'cat_softs', 'cat_energies', 'cat_indici',
             'sig_valute', 'sec_cross', 'sec_commodities', 'sec_indices', 'report_header', 'screening_header',
             'cross_long', 'cross_short', 'comm_squeeze', 'comm_bullish', 'comm_bearish',
-            'title', 'btn_ready', 'btn_charts', 'status_ready', 'status_download', 'status_success', 'error_prefix',
+            'title', 'title1', 'btn_ready', 'btn_charts', 'status_ready', 'status_download', 'status_success', 'error_prefix',
+            
+            # Testi ed elementi di scadenza / rete / disclaimer
+            'expired_title', 'expired_subtitle', 'expired_box_title', 'expired_box_sub', 'expired_price', 'expired_btn',
+            'net_error_title', 'net_error_body', 'net_error_btn',
+            'disclaimer_title', 'disclaimer_body', 'disclaimer_container', 'disclaimer_title_text', 'disclaimer_body_text',
+            'lang_dropdown', 'expired_lang_dropdown', 'change_expired_language', 'demo_badge', 'lang_and_badge_row',
+            'results_column', 'results_container', 'horizontal_scroll_view', 'analyze_btn', 'charts_btn', 'progress_ring',
 
             # Ticker e Mercati CFTC / Barchart
             'SWISS FRANC', 'USD INDEX', 'MEXICAN PESO', 'NZ DOLLAR', 'CANADIAN DOLLAR', 
@@ -41,12 +54,10 @@ class PurePythonObfuscator(ast.NodeTransformer):
         }
 
     def _generate_hex_name(self):
-        # Genera identificatori esadecimali casuali
         rand_hex = ''.join(random.choices('0123456789abcdef', k=6))
         return f"_0x{rand_hex}"
 
     def get_new_name(self, original_name):
-        # PROTEZIONE FORZATA: se inizia per __, è nella lista reserved o è una built-in di Python, non toccarlo
         if original_name.startswith('__') or original_name in self.reserved or original_name in dir(builtins):
             return original_name
             
@@ -59,7 +70,6 @@ class PurePythonObfuscator(ast.NodeTransformer):
 
     def visit_FunctionDef(self, node):
         node.name = self.get_new_name(node.name)
-        # Rimuove docstring se presente
         if (node.body and isinstance(node.body[0], ast.Expr) and 
             isinstance(node.body[0].value, ast.Constant) and 
             isinstance(node.body[0].value.value, str)):
@@ -86,7 +96,6 @@ def obfuscate_file(input_file="main.py", output_file="main_protected.py"):
         transformed = obfuscator.visit(parsed)
         ast.fix_missing_locations(transformed)
 
-        # Genera il codice Python trasformato
         obfuscated_code = ast.unparse(transformed)
 
         with open(output_file, "w", encoding="utf-8") as f:
