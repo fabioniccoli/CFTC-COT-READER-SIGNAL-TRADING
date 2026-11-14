@@ -6,6 +6,7 @@ import urllib.request
 import urllib.error
 import json
 import uuid
+import hashlib
 import flet as ft
 
 FIREBASE_PROJECT_ID = 'cftc-cot-reader-signal-trading'
@@ -191,7 +192,7 @@ TRANSLATIONS = {
         'comm_bullish': '-> [COMMODITY / BULLISH] {name}: Starker Long bei schwachem USD (Slope: {slope:+.1f}).',
         'comm_bearish': '-> [COMMODITY / BEARISH] {name}: Starker Short bei starkem USD (Slope: {slope:+.1f}).',
         'disclaimer_title': 'RISIKOHINWEIS!',
-        'disclaimer_body': 'CFDs und Optionen sind komplexe Instrumente mit einem hohen Risiko von Kapitalverlusten aufgrund von Hebeleffekten. 74% der Kleinanlegerkonten verlieren beim Handel mit CFDs Geld. Überlegen Sie, ob Sie es sich leisten können, das hohe Risiko einzugehen, Ihr Geld zu verlieren. Diese App vereinfacht lediglich das Lesen der öffentlichen CFTC-Berichtsdaten unter https://www.cftc.gov/dea/newcot/deafut.txt und stellt die Diagramme von barchart.com zur Verfügung; sie ist keineswegs als Trading-Signal-Bot oder Ähnliches zu betrachten. Wir haftend in keiner Weise für erlittene finanzielle Verluste.',
+        'disclaimer_body': 'CFDs und Optionen sind komplexe Instrumente mit einem hohen Risiko von Kapitalverlusten aufgrund von Hebeleffekten. 74% der Kleinanlegerkonten verlieren beim Handel mit CFDs Geld. Überlegen Sie, ob Sie es sich leisten können, das hohe Risiko einzugehen, Ihr Geld zu verlieren. Diese App vereinfacht lediglich das Lesen der öffentlichen CFTC-Berichtsdaten unter https://www.cftc.gov/dea/newcot/deafut.txt und stellt die Diagramme von barchart.com zur Verfügung; sie ist keineswegs als Trading-Signal-Bot oder Ähnliches zu betrachten. Wir haften in keiner Weise für erlittene finanzielle Verluste.',
         'expired_title': '⚠️ 60-TAGE-TESTZEITRAUM ABGELAUFEN',
         'expired_subtitle': 'Wir hoffen, die automatisierte Analyse war nützlich!\nDie kommerzielle PRO-Version ist in Kürze verfügbar.',
         'expired_box_title': 'LIFETIME VORAB-ANGEBOT',
@@ -250,6 +251,24 @@ BARCHART_LINKS = {
 }
 
 def get_or_create_device_id():
+    raw_hw_id = None
+    
+    # Lettura Android ID nativo (persiste anche dopo disinstallazione)
+    try:
+        from jnius import autoclass
+        PythonActivity = autoclass('org.kivy.android.PythonActivity')
+        SettingsSecure = autoclass('android.provider.Settings$Secure')
+        context = PythonActivity.mActivity
+        android_id = SettingsSecure.getString(context.getContentResolver(), SettingsSecure.ANDROID_ID)
+        if android_id and android_id != "9774d56d682e549c":
+            raw_hw_id = f"android_{android_id}"
+    except Exception:
+        pass
+
+    if raw_hw_id:
+        return hashlib.sha256(raw_hw_id.encode('utf-8')).hexdigest()[:32]
+
+    # Fallback su file locale
     key_file = 'device_id.key'
     if os.path.exists(key_file):
         with open(key_file, 'r') as f:
@@ -308,7 +327,6 @@ def main(page: ft.Page):
         device_id = get_or_create_device_id()
         status, days_left = check_license_with_firebase(device_id)
 
-        # Funzione universale per cambiare lingua al volo ovunque ci si trovi
         def change_language_global(e):
             page.data['lang'] = e.control.value
             page.clean()
@@ -325,7 +343,6 @@ def main(page: ft.Page):
                 on_click=lambda e: (page.clean(), main(page))
             )
             
-            # Selettore lingua anche nella schermata di errore rete
             net_lang_dropdown = ft.Dropdown(
                 label='Language / Lingua', value=page.data['lang'], 
                 options=[ft.dropdown.Option(lang) for lang in TRANSLATIONS.keys()], 
@@ -333,7 +350,7 @@ def main(page: ft.Page):
             )
 
             page.add(ft.Column([
-                ft.Container(height=30), # Spaziatore superiore per evitare la fotocamera dello smartphone
+                ft.Container(height=30),
                 net_lang_dropdown,
                 ft.Container(height=10),
                 err_title, 
@@ -364,6 +381,7 @@ def main(page: ft.Page):
 
             page.add(ft.ListView([
                 ft.Column([
+                    ft.Container(height=30),
                     expired_lang_dropdown,
                     ft.Container(height=10),
                     exp_title, 
@@ -582,7 +600,7 @@ def main(page: ft.Page):
         )
 
         page.add(
-            ft.Container(height=10), 
+            ft.Container(height=25), 
             header_column, 
             lang_and_badge_row, 
             ft.Divider(height=15, color='white24'), 
